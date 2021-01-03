@@ -23,7 +23,7 @@ namespace eBibloteka.Controllers
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
-            var test = "never used";
+            var test = "never u sed";
             return View();
         }
     }
