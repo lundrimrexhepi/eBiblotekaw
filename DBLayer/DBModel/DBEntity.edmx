@@ -1,0 +1,503 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BiblotekaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblAutori">
+          <Key>
+            <PropertyRef Name="AutoriID" />
+          </Key>
+          <Property Name="AutoriID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AutoriEmri" Type="nvarchar" MaxLength="50" />
+          <Property Name="AutoriMbiemri" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblDhoma">
+          <Key>
+            <PropertyRef Name="DhomaID" />
+          </Key>
+          <Property Name="DhomaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Pershkrimi" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblGjuhaLibrit">
+          <Key>
+            <PropertyRef Name="GjuhaLibritID" />
+          </Key>
+          <Property Name="GjuhaLibritID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Pershkrimi" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="tblGrupi">
+          <Key>
+            <PropertyRef Name="GrupiID" />
+          </Key>
+          <Property Name="GrupiID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Pershkrimi" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblHistoriatet">
+          <Key>
+            <PropertyRef Name="HistoriatiID" />
+          </Key>
+          <Property Name="HistoriatiID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HistoriatiData" Type="datetime" Nullable="false" />
+          <Property Name="HistoriatiLlojiID" Type="int" Nullable="false" />
+          <Property Name="PerdoruesiID" Type="int" Nullable="false" />
+          <Property Name="IP" Type="varchar" MaxLength="50" />
+          <Property Name="Tabela" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="TabelaCelesi" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ObjektiThirres" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Transaksioni" Type="xml" />
+        </EntityType>
+        <EntityType Name="tblHistoriatetLlojet">
+          <Key>
+            <PropertyRef Name="HistoriatiLlojiID" />
+          </Key>
+          <Property Name="HistoriatiLlojiID" Type="int" Nullable="false" />
+          <Property Name="Pershkrimi_SQ" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Pershkrimi_EN" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Pershkrimi_SR" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblHuazimi">
+          <Key>
+            <PropertyRef Name="HuazimiID" />
+          </Key>
+          <Property Name="HuazimiID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PerdoruesiID" Type="int" />
+          <Property Name="LibriID" Type="int" />
+          <Property Name="Sasia" Type="int" />
+          <Property Name="DataHuazimit" Type="datetime" />
+          <Property Name="DataKthimit" Type="datetime" />
+          <Property Name="Shenime" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="tblKomunat">
+          <Key>
+            <PropertyRef Name="KomunaID" />
+          </Key>
+          <Property Name="KomunaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Pershkrimi_SQ" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Pershkrimi_EN" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Pershkrimi_SR" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblKthimi">
+          <Key>
+            <PropertyRef Name="KthimiID" />
+          </Key>
+          <Property Name="KthimiID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LibriID" Type="int" />
+          <Property Name="PerdoruesiID" Type="int" />
+          <Property Name="Sasia" Type="int" />
+          <Property Name="DataKthimit" Type="datetime" />
+          <Property Name="Domtuar" Type="bit" />
+          <Property Name="Pages" Type="money" />
+          <Property Name="SasiaDomtuar" Type="int" />
+        </EntityType>
+        <EntityType Name="tblLibri">
+          <Key>
+            <PropertyRef Name="LibriID" />
+          </Key>
+          <Property Name="LibriID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ISBN" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="TittulliLibrit" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Sasia" Type="int" Nullable="false" />
+          <Property Name="AutoriID" Type="int" Nullable="false" />
+          <Property Name="GjuhaLibritID" Type="int" Nullable="false" />
+          <Property Name="Botimi" Type="nvarchar" MaxLength="200" />
+          <Property Name="VitiBotimit" Type="int" />
+          <Property Name="NumriFaqeve" Type="int" />
+          <Property Name="ShtepiaBotuseID" Type="int" />
+          <Property Name="DhomaID" Type="int" />
+          <Property Name="RaftiID" Type="int" />
+          <Property Name="DonacionPershkrimi" Type="nvarchar" MaxLength="200" />
+          <Property Name="DataInsertimi" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblPerdoruesit">
+          <Key>
+            <PropertyRef Name="PerdoruesiID" />
+          </Key>
+          <Property Name="PerdoruesiID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NumriPersonal" Type="varchar" MaxLength="50" />
+          <Property Name="Emri" Type="varchar" MaxLength="50" />
+          <Property Name="Mbiemri" Type="varchar" MaxLength="50" />
+          <Property Name="KomunaID" Type="int" />
+          <Property Name="Adresa" Type="nvarchar" MaxLength="150" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Telefoni" Type="varchar" MaxLength="20" />
+          <Property Name="DateLindja" Type="datetime" />
+          <Property Name="GrupiID" Type="int" />
+          <Property Name="DataInsertimit" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblRafti">
+          <Key>
+            <PropertyRef Name="RaftiID" />
+          </Key>
+          <Property Name="RaftiID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DhomaID" Type="int" />
+          <Property Name="PershkrimiRafti" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_tblHistoriatet_tblHistoriatetLlojet">
+          <End Role="tblHistoriatetLlojet" Type="Self.tblHistoriatetLlojet" Multiplicity="1" />
+          <End Role="tblHistoriatet" Type="Self.tblHistoriatet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblHistoriatetLlojet">
+              <PropertyRef Name="HistoriatiLlojiID" />
+            </Principal>
+            <Dependent Role="tblHistoriatet">
+              <PropertyRef Name="HistoriatiLlojiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BiblotekaModelStoreContainer">
+          <EntitySet Name="tblAutori" EntityType="Self.tblAutori" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblDhoma" EntityType="Self.tblDhoma" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblGjuhaLibrit" EntityType="Self.tblGjuhaLibrit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblGrupi" EntityType="Self.tblGrupi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblHistoriatet" EntityType="Self.tblHistoriatet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblHistoriatetLlojet" EntityType="Self.tblHistoriatetLlojet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblHuazimi" EntityType="Self.tblHuazimi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblKomunat" EntityType="Self.tblKomunat" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblKthimi" EntityType="Self.tblKthimi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblLibri" EntityType="Self.tblLibri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPerdoruesit" EntityType="Self.tblPerdoruesit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblRafti" EntityType="Self.tblRafti" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tblHistoriatet_tblHistoriatetLlojet" Association="Self.FK_tblHistoriatet_tblHistoriatetLlojet">
+            <End Role="tblHistoriatetLlojet" EntitySet="tblHistoriatetLlojet" />
+            <End Role="tblHistoriatet" EntitySet="tblHistoriatet" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BiblotekaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblAutori">
+          <Key>
+            <PropertyRef Name="AutoriID" />
+          </Key>
+          <Property Name="AutoriID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AutoriEmri" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AutoriMbiemri" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblDhoma">
+          <Key>
+            <PropertyRef Name="DhomaID" />
+          </Key>
+          <Property Name="DhomaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pershkrimi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblGjuhaLibrit">
+          <Key>
+            <PropertyRef Name="GjuhaLibritID" />
+          </Key>
+          <Property Name="GjuhaLibritID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pershkrimi" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblGrupi">
+          <Key>
+            <PropertyRef Name="GrupiID" />
+          </Key>
+          <Property Name="GrupiID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pershkrimi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblHistoriatet">
+          <Key>
+            <PropertyRef Name="HistoriatiID" />
+          </Key>
+          <Property Name="HistoriatiID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HistoriatiData" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="HistoriatiLlojiID" Type="Int32" Nullable="false" />
+          <Property Name="PerdoruesiID" Type="Int32" Nullable="false" />
+          <Property Name="IP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Tabela" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TabelaCelesi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ObjektiThirres" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Transaksioni" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblHistoriatetLlojet" Relationship="Self.FK_tblHistoriatet_tblHistoriatetLlojet" FromRole="tblHistoriatet" ToRole="tblHistoriatetLlojet" />
+        </EntityType>
+        <EntityType Name="tblHistoriatetLlojet">
+          <Key>
+            <PropertyRef Name="HistoriatiLlojiID" />
+          </Key>
+          <Property Name="HistoriatiLlojiID" Type="Int32" Nullable="false" />
+          <Property Name="Pershkrimi_SQ" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Pershkrimi_EN" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Pershkrimi_SR" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tblHistoriatet" Relationship="Self.FK_tblHistoriatet_tblHistoriatetLlojet" FromRole="tblHistoriatetLlojet" ToRole="tblHistoriatet" />
+        </EntityType>
+        <EntityType Name="tblHuazimi">
+          <Key>
+            <PropertyRef Name="HuazimiID" />
+          </Key>
+          <Property Name="HuazimiID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PerdoruesiID" Type="Int32" />
+          <Property Name="LibriID" Type="Int32" />
+          <Property Name="Sasia" Type="Int32" />
+          <Property Name="DataHuazimit" Type="DateTime" Precision="3" />
+          <Property Name="DataKthimit" Type="DateTime" Precision="3" />
+          <Property Name="Shenime" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblKomunat">
+          <Key>
+            <PropertyRef Name="KomunaID" />
+          </Key>
+          <Property Name="KomunaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pershkrimi_SQ" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Pershkrimi_EN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Pershkrimi_SR" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblKthimi">
+          <Key>
+            <PropertyRef Name="KthimiID" />
+          </Key>
+          <Property Name="KthimiID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LibriID" Type="Int32" />
+          <Property Name="PerdoruesiID" Type="Int32" />
+          <Property Name="Sasia" Type="Int32" />
+          <Property Name="DataKthimit" Type="DateTime" Precision="3" />
+          <Property Name="Domtuar" Type="Boolean" />
+          <Property Name="Pages" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="SasiaDomtuar" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblLibri">
+          <Key>
+            <PropertyRef Name="LibriID" />
+          </Key>
+          <Property Name="LibriID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ISBN" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TittulliLibrit" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Sasia" Type="Int32" Nullable="false" />
+          <Property Name="AutoriID" Type="Int32" Nullable="false" />
+          <Property Name="GjuhaLibritID" Type="Int32" Nullable="false" />
+          <Property Name="Botimi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="VitiBotimit" Type="Int32" />
+          <Property Name="NumriFaqeve" Type="Int32" />
+          <Property Name="ShtepiaBotuseID" Type="Int32" />
+          <Property Name="DhomaID" Type="Int32" />
+          <Property Name="RaftiID" Type="Int32" />
+          <Property Name="DonacionPershkrimi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="DataInsertimi" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tblPerdoruesit">
+          <Key>
+            <PropertyRef Name="PerdoruesiID" />
+          </Key>
+          <Property Name="PerdoruesiID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NumriPersonal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Emri" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Mbiemri" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="KomunaID" Type="Int32" />
+          <Property Name="Adresa" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Telefoni" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DateLindja" Type="DateTime" Precision="3" />
+          <Property Name="GrupiID" Type="Int32" />
+          <Property Name="DataInsertimit" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tblRafti">
+          <Key>
+            <PropertyRef Name="RaftiID" />
+          </Key>
+          <Property Name="RaftiID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DhomaID" Type="Int32" />
+          <Property Name="PershkrimiRafti" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_tblHistoriatet_tblHistoriatetLlojet">
+          <End Role="tblHistoriatetLlojet" Type="Self.tblHistoriatetLlojet" Multiplicity="1" />
+          <End Role="tblHistoriatet" Type="Self.tblHistoriatet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblHistoriatetLlojet">
+              <PropertyRef Name="HistoriatiLlojiID" />
+            </Principal>
+            <Dependent Role="tblHistoriatet">
+              <PropertyRef Name="HistoriatiLlojiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BiblotekaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblAutori" EntityType="Self.tblAutori" />
+          <EntitySet Name="tblDhoma" EntityType="Self.tblDhoma" />
+          <EntitySet Name="tblGjuhaLibrit" EntityType="Self.tblGjuhaLibrit" />
+          <EntitySet Name="tblGrupi" EntityType="Self.tblGrupi" />
+          <EntitySet Name="tblHistoriatet" EntityType="Self.tblHistoriatet" />
+          <EntitySet Name="tblHistoriatetLlojet" EntityType="Self.tblHistoriatetLlojet" />
+          <EntitySet Name="tblHuazimi" EntityType="Self.tblHuazimi" />
+          <EntitySet Name="tblKomunat" EntityType="Self.tblKomunat" />
+          <EntitySet Name="tblKthimi" EntityType="Self.tblKthimi" />
+          <EntitySet Name="tblLibri" EntityType="Self.tblLibri" />
+          <EntitySet Name="tblPerdoruesit" EntityType="Self.tblPerdoruesit" />
+          <EntitySet Name="tblRafti" EntityType="Self.tblRafti" />
+          <AssociationSet Name="FK_tblHistoriatet_tblHistoriatetLlojet" Association="Self.FK_tblHistoriatet_tblHistoriatetLlojet">
+            <End Role="tblHistoriatetLlojet" EntitySet="tblHistoriatetLlojet" />
+            <End Role="tblHistoriatet" EntitySet="tblHistoriatet" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BiblotekaModelStoreContainer" CdmEntityContainer="BiblotekaEntities">
+          <EntitySetMapping Name="tblAutori">
+            <EntityTypeMapping TypeName="BiblotekaModel.tblAutori">
+              <MappingFragment StoreEntitySet="tblAutori">
+                <ScalarProperty Name="AutoriID" ColumnName="AutoriID" />
+                <ScalarProperty Name="AutoriEmri" ColumnName="AutoriEmri" />
+                <ScalarProperty Name="AutoriMbiemri" ColumnName="AutoriMbiemri" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblDhoma">
+            <EntityTypeMapping TypeName="BiblotekaModel.tblDhoma">
+              <MappingFragment StoreEntitySet="tblDhoma">
+                <ScalarProperty Name="DhomaID" ColumnName="DhomaID" />
+                <ScalarProperty Name="Pershkrimi" ColumnName="Pershkrimi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblGjuhaLibrit">
+            <EntityTypeMapping TypeName="BiblotekaModel.tblGjuhaLibrit">
+              <MappingFragment StoreEntitySet="tblGjuhaLibrit">
+                <ScalarProperty Name="GjuhaLibritID" ColumnName="GjuhaLibritID" />
+                <ScalarProperty Name="Pershkrimi" ColumnName="Pershkrimi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblGrupi">
+            <EntityTypeMapping TypeName="BiblotekaModel.tblGrupi">
+              <MappingFragment StoreEntitySet="tblGrupi">
+                <ScalarProperty Name="GrupiID" ColumnName="GrupiID" />
+                <ScalarProperty Name="Pershkrimi" ColumnName="Pershkrimi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblHistoriatet">
+            <EntityTypeMapping TypeName="BiblotekaModel.tblHistoriatet">
+              <MappingFragment StoreEntitySet="tblHistoriatet">
+                <ScalarProperty Name="HistoriatiID" ColumnName="HistoriatiID" />
+                <ScalarProperty Name="HistoriatiData" ColumnName="HistoriatiData" />
+                <ScalarProperty Name="HistoriatiLlojiID" ColumnName="HistoriatiLlojiID" />
+                <ScalarProperty Name="PerdoruesiID" ColumnName="PerdoruesiID" />
+                <ScalarProperty Name="IP" ColumnName="IP" />
+                <ScalarProperty Name="Tabela" ColumnName="Tabela" />
+                <ScalarProperty Name="TabelaCelesi" ColumnName="TabelaCelesi" />
+                <ScalarProperty Name="ObjektiThirres" ColumnName="ObjektiThirres" />
+                <ScalarProperty Name="Transaksioni" ColumnName="Transaksioni" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblHistoriatetLlojet">
+            <EntityTypeMapping TypeName="BiblotekaModel.tblHistoriatetLlojet">
+              <MappingFragment StoreEntitySet="tblHistoriatetLlojet">
+                <ScalarProperty Name="HistoriatiLlojiID" ColumnName="HistoriatiLlojiID" />
+                <ScalarProperty Name="Pershkrimi_SQ" ColumnName="Pershkrimi_SQ" />
+                <ScalarProperty Name="Pershkrimi_EN" ColumnName="Pershkrimi_EN" />
+                <ScalarProperty Name="Pershkrimi_SR" ColumnName="Pershkrimi_SR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblHuazimi">
+            <EntityTypeMapping TypeName="BiblotekaModel.tblHuazimi">
+              <MappingFragment StoreEntitySet="tblHuazimi">
+                <ScalarProperty Name="HuazimiID" ColumnName="HuazimiID" />
+                <ScalarProperty Name="PerdoruesiID" ColumnName="PerdoruesiID" />
+                <ScalarProperty Name="LibriID" ColumnName="LibriID" />
+                <ScalarProperty Name="Sasia" ColumnName="Sasia" />
+                <ScalarProperty Name="DataHuazimit" ColumnName="DataHuazimit" />
+                <ScalarProperty Name="DataKthimit" ColumnName="DataKthimit" />
+                <ScalarProperty Name="Shenime" ColumnName="Shenime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblKomunat">
+            <EntityTypeMapping TypeName="BiblotekaModel.tblKomunat">
+              <MappingFragment StoreEntitySet="tblKomunat">
+                <ScalarProperty Name="KomunaID" ColumnName="KomunaID" />
+                <ScalarProperty Name="Pershkrimi_SQ" ColumnName="Pershkrimi_SQ" />
+                <ScalarProperty Name="Pershkrimi_EN" ColumnName="Pershkrimi_EN" />
+                <ScalarProperty Name="Pershkrimi_SR" ColumnName="Pershkrimi_SR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblKthimi">
+            <EntityTypeMapping TypeName="BiblotekaModel.tblKthimi">
+              <MappingFragment StoreEntitySet="tblKthimi">
+                <ScalarProperty Name="KthimiID" ColumnName="KthimiID" />
+                <ScalarProperty Name="LibriID" ColumnName="LibriID" />
+                <ScalarProperty Name="PerdoruesiID" ColumnName="PerdoruesiID" />
+                <ScalarProperty Name="Sasia" ColumnName="Sasia" />
+                <ScalarProperty Name="DataKthimit" ColumnName="DataKthimit" />
+                <ScalarProperty Name="Domtuar" ColumnName="Domtuar" />
+                <ScalarProperty Name="Pages" ColumnName="Pages" />
+                <ScalarProperty Name="SasiaDomtuar" ColumnName="SasiaDomtuar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblLibri">
+            <EntityTypeMapping TypeName="BiblotekaModel.tblLibri">
+              <MappingFragment StoreEntitySet="tblLibri">
+                <ScalarProperty Name="LibriID" ColumnName="LibriID" />
+                <ScalarProperty Name="ISBN" ColumnName="ISBN" />
+                <ScalarProperty Name="TittulliLibrit" ColumnName="TittulliLibrit" />
+                <ScalarProperty Name="Sasia" ColumnName="Sasia" />
+                <ScalarProperty Name="AutoriID" ColumnName="AutoriID" />
+                <ScalarProperty Name="GjuhaLibritID" ColumnName="GjuhaLibritID" />
+                <ScalarProperty Name="Botimi" ColumnName="Botimi" />
+                <ScalarProperty Name="VitiBotimit" ColumnName="VitiBotimit" />
+                <ScalarProperty Name="NumriFaqeve" ColumnName="NumriFaqeve" />
+                <ScalarProperty Name="ShtepiaBotuseID" ColumnName="ShtepiaBotuseID" />
+                <ScalarProperty Name="DhomaID" ColumnName="DhomaID" />
+                <ScalarProperty Name="RaftiID" ColumnName="RaftiID" />
+                <ScalarProperty Name="DonacionPershkrimi" ColumnName="DonacionPershkrimi" />
+                <ScalarProperty Name="DataInsertimi" ColumnName="DataInsertimi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPerdoruesit">
+            <EntityTypeMapping TypeName="BiblotekaModel.tblPerdoruesit">
+              <MappingFragment StoreEntitySet="tblPerdoruesit">
+                <ScalarProperty Name="PerdoruesiID" ColumnName="PerdoruesiID" />
+                <ScalarProperty Name="NumriPersonal" ColumnName="NumriPersonal" />
+                <ScalarProperty Name="Emri" ColumnName="Emri" />
+                <ScalarProperty Name="Mbiemri" ColumnName="Mbiemri" />
+                <ScalarProperty Name="KomunaID" ColumnName="KomunaID" />
+                <ScalarProperty Name="Adresa" ColumnName="Adresa" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Telefoni" ColumnName="Telefoni" />
+                <ScalarProperty Name="DateLindja" ColumnName="DateLindja" />
+                <ScalarProperty Name="GrupiID" ColumnName="GrupiID" />
+                <ScalarProperty Name="DataInsertimit" ColumnName="DataInsertimit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblRafti">
+            <EntityTypeMapping TypeName="BiblotekaModel.tblRafti">
+              <MappingFragment StoreEntitySet="tblRafti">
+                <ScalarProperty Name="RaftiID" ColumnName="RaftiID" />
+                <ScalarProperty Name="DhomaID" ColumnName="DhomaID" />
+                <ScalarProperty Name="PershkrimiRafti" ColumnName="PershkrimiRafti" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
