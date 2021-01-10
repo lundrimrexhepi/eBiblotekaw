@@ -14,7 +14,16 @@ namespace DBLayer.DBModel
     
     public partial class tblGrupi
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public tblGrupi()
+        {
+            this.tblPerdoruesit = new HashSet<tblPerdoruesit>();
+        }
+    
         public int GrupiID { get; set; }
         public string Pershkrimi { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblPerdoruesit> tblPerdoruesit { get; set; }
     }
 }

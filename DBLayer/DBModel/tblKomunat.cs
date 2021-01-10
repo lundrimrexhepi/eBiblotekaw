@@ -14,9 +14,18 @@ namespace DBLayer.DBModel
     
     public partial class tblKomunat
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public tblKomunat()
+        {
+            this.tblPerdoruesit = new HashSet<tblPerdoruesit>();
+        }
+    
         public int KomunaID { get; set; }
         public string Pershkrimi_SQ { get; set; }
         public string Pershkrimi_EN { get; set; }
         public string Pershkrimi_SR { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblPerdoruesit> tblPerdoruesit { get; set; }
     }
 }

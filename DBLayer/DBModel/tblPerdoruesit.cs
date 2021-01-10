@@ -14,10 +14,19 @@ namespace DBLayer.DBModel
     
     public partial class tblPerdoruesit
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public tblPerdoruesit()
+        {
+            this.tblHuazimi = new HashSet<tblHuazimi>();
+            this.tblKthimi = new HashSet<tblKthimi>();
+            this.tblLibri = new HashSet<tblLibri>();
+        }
+    
         public int PerdoruesiID { get; set; }
         public string NumriPersonal { get; set; }
         public string Emri { get; set; }
         public string Mbiemri { get; set; }
+        public byte[] Fjalkalimi { get; set; }
         public int KomunaID { get; set; }
         public string Adresa { get; set; }
         public string Email { get; set; }
@@ -25,6 +34,14 @@ namespace DBLayer.DBModel
         public Nullable<System.DateTime> DateLindja { get; set; }
         public int GrupiID { get; set; }
         public System.DateTime DataInsertimit { get; set; }
-        public byte[] Fjalkalimi { get; set; }
+    
+        public virtual tblGrupi tblGrupi { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblHuazimi> tblHuazimi { get; set; }
+        public virtual tblKomunat tblKomunat { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblKthimi> tblKthimi { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblLibri> tblLibri { get; set; }
     }
 }

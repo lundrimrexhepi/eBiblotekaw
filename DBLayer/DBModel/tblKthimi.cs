@@ -22,5 +22,8 @@ namespace DBLayer.DBModel
         public Nullable<bool> Domtuar { get; set; }
         public Nullable<decimal> Pages { get; set; }
         public Nullable<int> SasiaDomtuar { get; set; }
+    
+        public virtual tblLibri tblLibri { get; set; }
+        public virtual tblPerdoruesit tblPerdoruesit { get; set; }
     }
 }
