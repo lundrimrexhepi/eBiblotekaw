@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace DBLayer.Class
+namespace eBibloteka.Models
 {
     public class Librat
     {
@@ -20,5 +20,6 @@ namespace DBLayer.Class
         public int RaftiID { get; set; }
         public string DonacionPershkrimi { get; set; }
         public int PerdoruesiIDLexuesit { get; set; }
+        public int Rasti { get; set; }
     }
 }

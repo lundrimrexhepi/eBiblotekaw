@@ -129,7 +129,7 @@
           <Property Name="PerdoruesiID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NumriPersonal" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Emri" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Mbiemri" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Mbiemri" Type="varchar" MaxLength="50" />
           <Property Name="Fjalkalimi" Type="varbinary(max)" Nullable="false" />
           <Property Name="KomunaID" Type="int" Nullable="false" />
           <Property Name="Adresa" Type="nvarchar" MaxLength="150" />
@@ -146,6 +146,13 @@
           <Property Name="RaftiID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DhomaID" Type="int" />
           <Property Name="PershkrimiRafti" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblShtepiaBotuese">
+          <Key>
+            <PropertyRef Name="ShtepiaBotuseID" />
+          </Key>
+          <Property Name="ShtepiaBotuseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Pershkrimi" Type="nvarchar" MaxLength="500" />
         </EntityType>
         <Association Name="FK_tblHistoriatet_tblHistoriatetLlojet">
           <End Role="tblHistoriatetLlojet" Type="Self.tblHistoriatetLlojet" Multiplicity="1" />
@@ -336,6 +343,7 @@
           <EntitySet Name="tblLibri" EntityType="Self.tblLibri" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblPerdoruesit" EntityType="Self.tblPerdoruesit" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblRafti" EntityType="Self.tblRafti" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblShtepiaBotuese" EntityType="Self.tblShtepiaBotuese" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_tblHistoriatet_tblHistoriatetLlojet" Association="Self.FK_tblHistoriatet_tblHistoriatetLlojet">
             <End Role="tblHistoriatetLlojet" EntitySet="tblHistoriatetLlojet" />
             <End Role="tblHistoriatet" EntitySet="tblHistoriatet" />
@@ -481,6 +489,7 @@
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
+          <EntitySet Name="tblShtepiaBotuese" EntityType="BiblotekaModel.tblShtepiaBotuese" />
         </EntityContainer>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -624,7 +633,7 @@
           <Property Name="PerdoruesiID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NumriPersonal" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Emri" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Mbiemri" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Mbiemri" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Fjalkalimi" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
           <Property Name="KomunaID" Type="Int32" Nullable="false" />
           <Property Name="Adresa" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
@@ -803,6 +812,13 @@
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
+        <EntityType Name="tblShtepiaBotuese">
+          <Key>
+            <PropertyRef Name="ShtepiaBotuseID" />
+          </Key>
+          <Property Name="ShtepiaBotuseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pershkrimi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -988,6 +1004,14 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="BiblotekaModel.Store.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="BiblotekaModel.Store.sp_upgraddiagrams" />
+          <EntitySetMapping Name="tblShtepiaBotuese">
+            <EntityTypeMapping TypeName="BiblotekaModel.tblShtepiaBotuese">
+              <MappingFragment StoreEntitySet="tblShtepiaBotuese">
+                <ScalarProperty Name="Pershkrimi" ColumnName="Pershkrimi" />
+                <ScalarProperty Name="ShtepiaBotuseID" ColumnName="ShtepiaBotuseID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

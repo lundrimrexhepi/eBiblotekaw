@@ -30,6 +30,7 @@
         <AssociationConnector Association="BiblotekaModel.FK_tblKthimi_tblPerdoruesit" />
         <AssociationConnector Association="BiblotekaModel.FK_tblLibri_tblPerdoruesit" />
         <AssociationConnector Association="BiblotekaModel.FK_tblLibri_tblRafti" />
+        <EntityTypeShape EntityType="BiblotekaModel.tblShtepiaBotuese" Width="1.5" PointX="0.75" PointY="10.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

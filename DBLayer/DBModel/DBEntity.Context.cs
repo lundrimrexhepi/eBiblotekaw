@@ -40,6 +40,7 @@ namespace DBLayer.DBModel
         public virtual DbSet<tblLibri> tblLibri { get; set; }
         public virtual DbSet<tblPerdoruesit> tblPerdoruesit { get; set; }
         public virtual DbSet<tblRafti> tblRafti { get; set; }
+        public virtual DbSet<tblShtepiaBotuese> tblShtepiaBotuese { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
