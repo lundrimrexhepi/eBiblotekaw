@@ -14,8 +14,17 @@ namespace DBLayer.DBModel
     
     public partial class tblAutori
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public tblAutori()
+        {
+            this.tblLibri = new HashSet<tblLibri>();
+        }
+    
         public int AutoriID { get; set; }
         public string AutoriEmri { get; set; }
         public string AutoriMbiemri { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblLibri> tblLibri { get; set; }
     }
 }

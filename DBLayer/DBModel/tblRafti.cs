@@ -14,8 +14,17 @@ namespace DBLayer.DBModel
     
     public partial class tblRafti
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public tblRafti()
+        {
+            this.tblLibri = new HashSet<tblLibri>();
+        }
+    
         public int RaftiID { get; set; }
         public Nullable<int> DhomaID { get; set; }
         public string PershkrimiRafti { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblLibri> tblLibri { get; set; }
     }
 }

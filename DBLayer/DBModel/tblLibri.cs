@@ -14,6 +14,13 @@ namespace DBLayer.DBModel
     
     public partial class tblLibri
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public tblLibri()
+        {
+            this.tblHuazimi = new HashSet<tblHuazimi>();
+            this.tblKthimi = new HashSet<tblKthimi>();
+        }
+    
         public int LibriID { get; set; }
         public string ISBN { get; set; }
         public string TittulliLibrit { get; set; }
@@ -28,5 +35,17 @@ namespace DBLayer.DBModel
         public Nullable<int> RaftiID { get; set; }
         public string DonacionPershkrimi { get; set; }
         public Nullable<System.DateTime> DataInsertimi { get; set; }
+        public Nullable<int> PerdoruesiID { get; set; }
+        public int PerdoruesiIDLexuesi { get; set; }
+    
+        public virtual tblAutori tblAutori { get; set; }
+        public virtual tblDhoma tblDhoma { get; set; }
+        public virtual tblGjuhaLibrit tblGjuhaLibrit { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblHuazimi> tblHuazimi { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblKthimi> tblKthimi { get; set; }
+        public virtual tblPerdoruesit tblPerdoruesit { get; set; }
+        public virtual tblRafti tblRafti { get; set; }
     }
 }
