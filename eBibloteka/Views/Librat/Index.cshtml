@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<!--<div class="row">
+    <section class="col-lg-12">
+        <div class="container-fluid">
+            <!-- SELECT2 EXAMPLE -->
+            <!--<div class="card card-default">
+
+
+                <div class="card-header">
+                    <h3 class="card-title"> Regjistrimi Librave</h3>
+                    <div class="card-tools">
+                    </div>
+                </div>
+                @using (Ajax.BeginForm("RegjistroLibrin", "Librat", new AjaxOptions { HttpMethod = "POST", OnSuccess = "successSubmit", OnFailure = "errorSubmit" }))
+                {-->
+
+                    <!-- /.card-header -->
+                    <!--<div class="card-body">
+
+                        <div class="row">
+                            <div class="form-group col-md-7">
+
+                                <label for="inputEmail3" class="col-form-label"> @ePelqimet.Helpers.ResourceCache.PershkrimiKontrolles("lblLlojiKerkeses", "Kerkesat")</label>&nbsp;&nbsp; &nbsp;<a href='#' id="InfoMesazhi" data-toggle='tooltip' data-placement='top' style='color: #3c8dbc;'><i class="fas fa-info-circle fa-w-6 fa-1x"></i></a>
+                                @Html.DropDownListFor(x => x.KerkesaLlojiID, (SelectList)ViewBag.LlojetKerkesave, "", new { @class = "form-control", @onchange = "chngLloji(0)" })
+                                @Html.ValidationMessageFor(x => x.KerkesaID, null, new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group col-md-3" style="display:none">
+                                <label for="inputEmail3" class="col-form-label">@ePelqimet.Helpers.ResourceCache.PershkrimiKontrolles("lblDepartamenti", "Kerkesat")</label>-->
+                                @*@Html.DropDownListFor(x => x.DepartamentiID, SelectList(ViewBag.Departamentet, "DepartamentiID", "Pershkrimi_SQ", 2), "", new { @class = "form-control", @onchange = "KerkoKonfigurimet('Fillestar')" })*@
+                                @Html.DropDownListFor(x => x.DepartamentiID, new SelectList(ViewBag.Departamentet, "DepartamentiID", ViewBag.Pershkrimi, ViewBag.DepartamentetDefault), new { @class = "form-control", @onchange = "KerkoKonfigurimet('Fillestar')" })
+                                @Html.ValidationMessageFor(x => x.DepartamentiID, null, new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group col-md-1" style="padding-right:0px;">
+                                <label for="inputEmail3" class="col-form-label">&nbsp;@ePelqimet.Helpers.ResourceCache.PershkrimiKontrolles("lblAfati", "Kerkesat")</label>
+                                @Html.TextBoxFor(x => x.Afati, new { @class = "form-control" })
+                            </div>
+
+                            <div class="form-group col-md-3" style="padding-right:0px;">
+                                <label for="inputEmail3" class="col-form-label">&nbsp;</label>
+                                @Html.TextBoxFor(x => x.KoordinatatXY, new { @class = "form-control", @placeholder = "Koordinatat X,Y" })
+                            </div>-->
+
+                            <!--1 start-->
+                            <!-- 2-->
+                           
+                            <!--1 end-->
+                            <!-- 3-->
+                         
+                        <!--</div>
+                       
+                     
+                        <br />
+                      
+                     
+                    </div>
+                }-->
+                <!-- /.card-body -->
+                <!--<div class="card-footer">
+                </div>
+            </div>
+        </div>
+    </section>
+</div>-->
+

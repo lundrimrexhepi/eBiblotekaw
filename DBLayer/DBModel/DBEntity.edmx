@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="BiblotekaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="BiblotekaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tblAutori">
           <Key>
             <PropertyRef Name="AutoriID" />
@@ -115,16 +115,17 @@
             <PropertyRef Name="PerdoruesiID" />
           </Key>
           <Property Name="PerdoruesiID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NumriPersonal" Type="varchar" MaxLength="50" />
-          <Property Name="Emri" Type="varchar" MaxLength="50" />
-          <Property Name="Mbiemri" Type="varchar" MaxLength="50" />
-          <Property Name="KomunaID" Type="int" />
+          <Property Name="NumriPersonal" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Emri" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Mbiemri" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Fjalkalimi" Type="varbinary(max)" Nullable="false" />
+          <Property Name="KomunaID" Type="int" Nullable="false" />
           <Property Name="Adresa" Type="nvarchar" MaxLength="150" />
           <Property Name="Email" Type="varchar" MaxLength="50" />
           <Property Name="Telefoni" Type="varchar" MaxLength="20" />
           <Property Name="DateLindja" Type="datetime" />
-          <Property Name="GrupiID" Type="int" />
-          <Property Name="DataInsertimit" Type="datetime" />
+          <Property Name="GrupiID" Type="int" Nullable="false" />
+          <Property Name="DataInsertimit" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="tblRafti">
           <Key>
@@ -164,8 +165,7 @@
             <End Role="tblHistoriatet" EntitySet="tblHistoriatet" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BiblotekaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -281,16 +281,17 @@
             <PropertyRef Name="PerdoruesiID" />
           </Key>
           <Property Name="PerdoruesiID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NumriPersonal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Emri" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Mbiemri" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="KomunaID" Type="Int32" />
+          <Property Name="NumriPersonal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Emri" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Mbiemri" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KomunaID" Type="Int32" Nullable="false" />
           <Property Name="Adresa" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Telefoni" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="DateLindja" Type="DateTime" Precision="3" />
-          <Property Name="GrupiID" Type="Int32" />
-          <Property Name="DataInsertimit" Type="DateTime" Precision="3" />
+          <Property Name="GrupiID" Type="Int32" Nullable="false" />
+          <Property Name="DataInsertimit" Type="DateTime" Precision="3" Nullable="false" />
+          <Property Name="Fjalkalimi" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="tblRafti">
           <Key>
@@ -454,6 +455,7 @@
           <EntitySetMapping Name="tblPerdoruesit">
             <EntityTypeMapping TypeName="BiblotekaModel.tblPerdoruesit">
               <MappingFragment StoreEntitySet="tblPerdoruesit">
+                <ScalarProperty Name="Fjalkalimi" ColumnName="Fjalkalimi" />
                 <ScalarProperty Name="PerdoruesiID" ColumnName="PerdoruesiID" />
                 <ScalarProperty Name="NumriPersonal" ColumnName="NumriPersonal" />
                 <ScalarProperty Name="Emri" ColumnName="Emri" />

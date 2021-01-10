@@ -18,12 +18,13 @@ namespace DBLayer.DBModel
         public string NumriPersonal { get; set; }
         public string Emri { get; set; }
         public string Mbiemri { get; set; }
-        public Nullable<int> KomunaID { get; set; }
+        public int KomunaID { get; set; }
         public string Adresa { get; set; }
         public string Email { get; set; }
         public string Telefoni { get; set; }
         public Nullable<System.DateTime> DateLindja { get; set; }
-        public Nullable<int> GrupiID { get; set; }
-        public Nullable<System.DateTime> DataInsertimit { get; set; }
+        public int GrupiID { get; set; }
+        public System.DateTime DataInsertimit { get; set; }
+        public byte[] Fjalkalimi { get; set; }
     }
 }
