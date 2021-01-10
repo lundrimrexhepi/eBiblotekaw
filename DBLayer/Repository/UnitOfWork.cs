@@ -11,8 +11,14 @@ namespace DBLayer.Repository
         private BiblotekaEntities context = new BiblotekaEntities();
         private GenericRepository<tblPerdoruesit> UserRepository;
         private GenericRepository<tblLibri> BookRepository;
+        private GenericRepository<tblAutori> AuthorRepository;
+        private GenericRepository<tblGjuhaLibrit> bookLanguageRepository;
+        private GenericRepository<tblHistoriatet> HistoryRepository;
+        private GenericRepository<tblHuazimi> HuazimiRepository;
+        private GenericRepository<tblKthimi> KthimiRepository;
+        private GenericRepository<tblRafti> RaftiRepository;
 
-        public GenericRepository<tblPerdoruesit> DepartmentRepository
+        public GenericRepository<tblPerdoruesit> _UserRepository
         {
             get
             {
@@ -25,7 +31,7 @@ namespace DBLayer.Repository
             }
         }
 
-        public GenericRepository<tblLibri> CourseRepository
+        public GenericRepository<tblLibri> _BookRepository
         {
             get
             {
@@ -37,7 +43,79 @@ namespace DBLayer.Repository
                 return BookRepository;
             }
         }
+        public GenericRepository<tblAutori> _AuthorRepository
+        {
+            get
+            {
 
+                if (this.AuthorRepository == null)
+                {
+                    this.AuthorRepository = new GenericRepository<tblAutori>(context);
+                }
+                return AuthorRepository;
+            }
+        }
+        public GenericRepository<tblGjuhaLibrit> _bookLanguageRepository
+        {
+            get
+            {
+
+                if (this.bookLanguageRepository == null)
+                {
+                    this.bookLanguageRepository = new GenericRepository<tblGjuhaLibrit>(context);
+                }
+                return bookLanguageRepository;
+            }
+        }
+        public GenericRepository<tblHistoriatet> _HistoryRepository
+        {
+            get
+            {
+
+                if (this.HistoryRepository == null)
+                {
+                    this.HistoryRepository = new GenericRepository<tblHistoriatet>(context);
+                }
+                return HistoryRepository;
+            }
+        }
+        public GenericRepository<tblHuazimi> _HuazimiRepository
+        {
+            get
+            {
+
+                if (this.HuazimiRepository == null)
+                {
+                    this.HuazimiRepository = new GenericRepository<tblHuazimi>(context);
+                }
+                return HuazimiRepository;
+            }
+        }
+        public GenericRepository<tblKthimi> _KthimiRepository
+        {
+            get
+            {
+
+                if (this.KthimiRepository == null)
+                {
+                    this.KthimiRepository = new GenericRepository<tblKthimi>(context);
+                }
+                return KthimiRepository;
+            }
+        }
+        public GenericRepository<tblRafti> _RaftiRepository
+        {
+            get
+            {
+
+                if (this.RaftiRepository == null)
+                {
+                    this.RaftiRepository = new GenericRepository<tblRafti>(context);
+                }
+                return RaftiRepository;
+            }
+        }
+        
         public void Save()
         {
             context.SaveChanges();
