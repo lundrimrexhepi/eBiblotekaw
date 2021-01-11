@@ -163,6 +163,7 @@
     <Compile Include="Helpers\GjenerimiRaporteve.cs" />
     <Compile Include="Helpers\ReportGenerator.cs" />
     <Compile Include="Models\Librat.cs" />
+    <Compile Include="Models\QasjaModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
