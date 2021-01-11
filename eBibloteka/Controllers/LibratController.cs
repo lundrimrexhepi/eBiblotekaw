@@ -18,7 +18,7 @@ namespace eBibloteka.Controllers
         {
             MbushKombot();
             Librat modeli = new Librat();
-            modeli.ISBN = GjeneroISBN();
+            modeli.ISBN = GjeneroISBN(); 
             return View(modeli);
         }
         public void MbushKombot()
