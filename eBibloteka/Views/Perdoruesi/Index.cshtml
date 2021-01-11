@@ -1,124 +1,505 @@
-﻿@model DBLayer.DBModel.tblPerdoruesit
+﻿@using eBibloteka.Helpers
 
+@model eBibloteka.Models.PerdoruesiModel
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Regjistro perdoruesin";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
 
-@using (Html.BeginForm()) 
+@if (TempData["Alert"] != null)
 {
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>tblPerdoruesit</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.NumriPersonal, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NumriPersonal, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NumriPersonal, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Emri, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Emri, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Emri, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Mbiemri, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Mbiemri, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Mbiemri, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Fjalkalimi, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Fjalkalimi, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Fjalkalimi, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.KomunaID, "KomunaID", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("KomunaID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.KomunaID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Adresa, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Adresa, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Adresa, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Telefoni, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Telefoni, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Telefoni, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.DateLindja, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DateLindja, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DateLindja, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.GrupiID, "GrupiID", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("GrupiID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.GrupiID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.DataInsertimit, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DataInsertimit, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DataInsertimit, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Perdoruesi, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Perdoruesi, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Perdoruesi, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Sukses!</strong> @TempData["Alert"]
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
 }
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Error!</strong> @TempData["Error"]
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+<section class="content-header card-header">
+    <h1>
+        Përdoruesit
+    </h1>
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+</section>
+<br />
+<div class="col-md-2" style="padding-left:0px">
+    <div class="card card-primary"><button type="submit" class="btn btn-lightblue" id="btnCreateUser" onclick="showCreateUser()">Shto përdorues të ri </button></div>
 </div>
+
+<div class="card card-light" style="display:none;" id="createUser">
+    <div class="card-header">
+        <h3 class="card-title"><i class="fa fa-plus" aria-hidden="true"></i> &nbsp;&nbsp;Regjistrimi i përdoruesit</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+
+
+    @using (Html.BeginForm("CreateUser", "Perdoruesi", FormMethod.Post))
+    {
+        @Html.HiddenFor(model => model.perdoruesiID)
+        <div class="card-body">
+            <div class="row form-group">
+
+
+                <div class="col-md-3">
+                    <label for="inputUsername">@ResourceCache.PershkrimiKontrolles("Perdoruesi", "pergjithshem")</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-user" aria-hidden="true"></i></span>
+                        </div>
+                        @Html.TextBoxFor(model => model.Username, new { @class = "form-control", @Placeholder = ResourceCache.PershkrimiKontrolles("Perdoruesi", "pergjithshem") })
+                    </div>
+                    @Html.ValidationMessageFor(m => m.Username, "", new { @class = "text-danger" })
+                </div>
+
+
+
+
+
+
+                <div class="col-md-3">
+                    <label for="inputEmri">@ResourceCache.PershkrimiKontrolles("lblEmri", "pergjithshem")</label>
+                    @Html.TextBoxFor(model => model.Emri, new { @class = "form-control", @Placeholder = ResourceCache.PershkrimiKontrolles("lblEmri", "pergjithshem") })
+                    @Html.ValidationMessageFor(m => m.Emri, "", new { @class = "text-danger" })
+                </div>
+
+
+
+
+
+
+                <div class="col-md-3">
+                    <label for="inputMbiemri">@ResourceCache.PershkrimiKontrolles("lblMbiemri", "pergjithshem")</label>
+                    @Html.TextBoxFor(model => model.Mbiemri, new { @class = "form-control", @Placeholder = ResourceCache.PershkrimiKontrolles("lblMbiemri", "pergjithshem") })
+                    @Html.ValidationMessageFor(m => m.Mbiemri, "", new { @class = "text-danger" })
+                </div>
+
+
+
+
+
+
+                <div class="col-md-3">
+                    <label for="inputEmail">E-mail</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                        </div>
+                        @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @Placeholder = "E-mail", @type = "email" })
+                    </div>
+                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                </div>
+
+
+
+
+
+            </div>
+            <div class="row form-group">
+
+                <div class="col-md-3">
+
+                    <label for="inputNrPersonal">@ResourceCache.PershkrimiKontrolles("NumriPersonal", "pergjithshem")</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                        </div>
+                        @Html.TextBoxFor(model => model.NumriPersonal, new { @class = "form-control", @Placeholder = ResourceCache.PershkrimiKontrolles("NumriPersonal", "pergjithshem") })
+                    </div>
+                    @Html.ValidationMessageFor(m => m.NumriPersonal, "", new { @class = "text-danger" })
+                </div>
+
+
+
+                <div class="col-md-6">
+
+                    <label for="inputPassword">@ResourceCache.PershkrimiKontrolles("logFjalekalimi", "pergjithshem")</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-key" aria-hidden="true"></i></span>
+                        </div>
+                        @Html.TextBoxFor(model => model.Fjalekalimi, new { @class = "form-control", @Placeholder = ResourceCache.PershkrimiKontrolles("logFjalekalimi", "pergjithshem"), @type = "password" })
+                    </div>
+                    @Html.ValidationMessageFor(m => m.Fjalekalimi, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="col-md-3">
+
+                    <label for="inputNrPersonal">@ResourceCache.PershkrimiKontrolles("lblTelefoni", "pergjithshem")</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-phone" aria-hidden="true"></i></span>
+                        </div>
+                        @Html.TextBoxFor(model => model.Telefoni, new { @class = "form-control", @Placeholder = ResourceCache.PershkrimiKontrolles("lblTelefoni", "pergjithshem") })
+
+                    </div>
+                    @Html.ValidationMessageFor(m => m.Telefoni, "", new { @class = "text-danger" })
+                </div>
+
+
+
+            </div>
+            <div class="row form-group">
+
+                <div class="col-md-9">
+                    <label for="inputPassword">@ResourceCache.PershkrimiKontrolles("lblGrupet", "Grupi")</label>
+                    @Html.ListBoxFor(model => model.grupiID, ViewBag.Grupet as SelectList, new { @class = "form-control", @style = "width:100%", @Placeholder = ResourceCache.PershkrimiKontrolles("lblGrupet", "Grupi"), multiple = "multiple" }) @*per test Viewbag.Users to Viewbag.Username*@
+                    @Html.ValidationMessageFor(m => m.grupiID, "", new { @class = "text-danger" })
+
+                </div>
+              
+
+
+
+            </div>
+
+            <div class="row form-group">
+
+                <div class="col-md-9">
+                    <label for="inputPassword">@ResourceCache.PershkrimiKontrolles("mnuKomunat", "pergjithshem")</label>
+                    @Html.ListBoxFor(model => model.komunaID, ViewBag.Komunat as SelectList, new { @class = "form-control", @style = "width:100%", @Placeholder = @ResourceCache.PershkrimiKontrolles("Zgjedhe", "pergjithshem"), multiple = "multiple" }) @*per test Viewbag.Users to Viewbag.Username*@
+                    @Html.ValidationMessageFor(m => m.komunaID, "", new { @class = "text-danger" })
+
+                </div>
+
+
+
+
+
+            </div>
+
+
+
+        </div>
+        <!-- /.card-body -->
+
+        <div class="card-footer">
+            <button type="submit" class="btn btn-lightblue">Regjistro</button>
+            <button type="reset" class="btn btn-secondary" onclick="location.href='@Url.Action("Index", "Perdoruesi")'">Anulo</button>
+        </div>
+    }
+</div>
+
+<div class="card card-light">
+    <div class="card-header">
+        <h3 class="card-title"> Lista e përdoruesve</h3>
+    </div>
+    <br />
+    <div class="container-fluid">
+        <div class="table table-responsive">
+            <table id="myGrid" class="table text-center table-hover" style="width:100%;">
+
+                <thead>
+                    <tr>
+
+                        <th style="text-align:left">
+                            Perdoruesi
+                        </th>
+
+                        <th style="text-align:left">
+                           Emri
+                        </th>
+                        <th style="text-align:left">
+                         Mbiemri
+                        </th>
+                        <th style="text-align:left">
+                           Numri personal
+                        </th>
+                        <th style="text-align:left">
+                            E-mail
+                        </th>
+                        <th style="text-align:left">
+                            Telefoni
+                        </th>
+                        <th>
+                            Modifiko
+                        </th>
+                        <th>
+                            Fshije
+                        </th>
+
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @*@foreach (var item in Model.Lista)
+                        {
+                            <tr>
+                                <td style="text-align:left">
+                                    @Html.DisplayFor(modelItem => item.UserID)
+                                </td>
+
+                                <td style="text-align:left">
+                                    @Html.DisplayFor(modelItem => item.CadastralZoneID)
+                                </td>
+                                <td style="text-align:left">
+                                    @Html.DisplayFor(modelItem => item.FirstName)
+                                </td>
+                                <td style="text-align:left">
+                                    @Html.DisplayFor(modelItem => item.LastName)
+                                </td>
+                                <td style="text-align:left">
+                                    @Html.DisplayFor(modelItem => item.KodiZones)
+                                </td>
+                                <td style="text-align:left">
+                                    @Html.DisplayFor(modelItem => item.EmriZones)
+                                </td>
+
+                                </tr>
+                        }*@
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryval")
+
+<script type="text/javascript">
+
+        $(document).ready(function () {
+
+
+
+            $('#allKomunat').click(function () {
+                if ($(this).is(':checked')) {
+
+                    $("#komunaID").prop('disabled', true);
+
+
+                } else {
+                    $("#komunaID").prop('disabled', false);
+
+                }
+            });
+
+            $('#komunaID').on('change invalid', function () {
+                debugger;
+                var textfield = $(this).get(0);
+
+                // 'setCustomValidity not only sets the message, but also marks
+                // the field as invalid. In order to see whether the field really is
+                // invalid, we have to remove the message first
+                textfield.setCustomValidity('');
+
+                if (!textfield.validity.valid) {
+                    textfield.setCustomValidity('Zgjedh komunen!');
+                }
+            });
+
+
+
+
+            $("#grupiID").select2({
+                multiple: true,
+                placeholder: "@ResourceCache.PershkrimiKontrolles("lblGrupet", "pergjithshem")",
+                allowClear: true,
+                theme:bootstrap
+            });
+
+            $("#komunaID").select2({
+                multiple: true,
+                placeholder: "Zgjedh",
+                allowClear: true
+
+            });
+
+            dataTable();
+
+            var myArray = [];
+            var myArray1 = [];
+            @if(Model.perdoruesiID>0)
+            {
+                @:$('#createUser').show();
+                @:$('#btnCreateUser').hide();
+
+                foreach (var d in Model.grupiID)
+                {
+                    @:myArray.push("@d");
+                }
+                foreach (var d in Model.komunaID)
+                {
+                    @:myArray1.push("@d");
+                }
+            }
+            $("#grupiID").select2().val(myArray);
+            $("#grupiID").trigger('change');
+            $("#komunaID").select2().val(myArray1);
+            $("#komunaID").trigger('change');
+
+            setTimeout(function () {
+                $(".alert").alert('close');
+            }, 3000);
+
+
+
+        })
+
+    function showCreateUser() {
+
+        $('#createUser').toggle();
+
+    }
+
+</script>
+
+<script type="text/javascript">
+    function dataTable() {
+        $('#myGrid').DataTable(
+            {
+
+                columnDefs: [
+                    {
+                        targets:'_all',
+                        className:'dt-body-left'
+                    }
+                ],
+                "processing": true,
+                serverSide: true,
+                "bSort": false,
+                "pageLength":10,
+                paging: true,
+                searching: true,
+                "ajax": {
+                    "url": '@Url.Action("MbusheListenJson", "Perdoruesi")',
+                    "type": "GET",
+                    global: false,
+                    "datatype": "json"
+                },
+                "initComplete": function (settings, json) {
+                    //    $('.modal-backdrop').removeClass("show").addClass("hide");
+                    //     $("#loadingDiv").removeClass("show").addClass("hide");
+                },
+                "columns": [
+
+                { "data": "Username" ,"autowidth": true },
+                { "data": "Emri","autowidth": true },
+                { "data": "Mbiemri", "autowidth": true },
+                { "data": "NumriPersonal", "autowidth": true },
+                { "data": "Email", "autowidth": true },
+                { "data": "Telefoni", "autowidth": true },
+                    {
+                        "data": null,
+                        "render": function (data, type, full, meta) {
+
+                            return "<a href='@Url.Action("Index","Perdoruesi")?id=" + full.perdoruesiID +"'><i class='fas fa-edit'></i></a>"
+
+                        },
+                        "className":"dt-body-center"
+                    },
+                    {
+                        "data": null,
+                        "render": function (data, type, full, meta) {
+
+
+                            return "<a href='#' id='btn' onclick='FshijPerdoruesin(" + full.perdoruesiID + ");'><i class='fa fa-trash'></i></a>"
+
+                        },
+                        "className":"dt-body-center"
+                    }
+                ],
+
+                language: {
+                    "sEmptyTable": '@ResourceCache.PershkrimiKontrolles("lblNodata", "datatable")',
+                    "sInfo": '@ResourceCache.PershkrimiKontrolles("lblShowing", "datatable")' + " _START_ " + '@ResourceCache.PershkrimiKontrolles("lblDeri", "datatable")' + " _END_ " + '@ResourceCache.PershkrimiKontrolles("lblPrej", "datatable")' + " _TOTAL_ " + '@ResourceCache.PershkrimiKontrolles("lblRreshtave", "datatable")' + ".",
+                    "sInfoEmpty": "",
+                    "sInfoFiltered": "",
+                    "sInfoPostFix": "",
+                    "sInfoThousands": ",",
+                    "sLengthMenu": '@ResourceCache.PershkrimiKontrolles("lblShiko", "datatable")' + " _MENU_ " + '@ResourceCache.PershkrimiKontrolles("lblRreshta", "datatable")',
+                    "sLoadingRecords": "",
+                    "sProcessing": '@ResourceCache.PershkrimiKontrolles("lblProcessing", "datatable")',
+                    "sSearch": '@ResourceCache.PershkrimiKontrolles("lblKerkoni", "datatable")',
+                    "sZeroRecords": "",
+                    "oPaginate": {
+                        "sFirst": '@ResourceCache.PershkrimiKontrolles("lblPari", "datatable")',
+                        "sLast": '@ResourceCache.PershkrimiKontrolles("lblFundit", "datatable")',
+                        "sNext": '@ResourceCache.PershkrimiKontrolles("lblRradhes", "datatable")',
+                        "sPrevious": '@ResourceCache.PershkrimiKontrolles("lblParaprak", "datatable")'
+                    },
+                    "oAria": {
+                        "sSortAscending": ": ",
+                        "sSortDescending": ": "
+                    }
+                }
+
+
+            });
+    }
+
+
+    function FshijPerdoruesin(PerdoruesiID)
+    {
+        Swal.fire({
+            title: "Kujdes!",
+            text: "A jeni të sigurt që dëshironi të fshini këtë përdorues?",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Po!",
+            closeOnConfirm: false
+        }).then((result) => {
+
+            if (result.value == true) {
+
+
+
+
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("FshijePerdoruesin", "Perdoruesi")',
+                    data: { "PerdoruesiID": PerdoruesiID},
+                    success: function (data) {
+                        $('#myGrid').DataTable().ajax.reload();
+                        Swal.fire({
+                            icon: 'success',
+                            title: '@ResourceCache.PershkrimiKontrolles("Sukses", "pergjithshem")',
+                            text: 'Eshte fshire perdoruesi'
+
+                        })
+                        $('body').prelodr('out');
+
+
+                    }
+                    ,
+                    error: function (ex) {
+
+                        Swal.fire({
+                            icon: 'error',
+                            title: '@ResourceCache.PershkrimiKontrolles("Gabim", "pergjithshem")',
+                            text: '@Html.Raw(ResourceCache.PershkrimiKontrolles("gabim1", "pergjithshem"))'
+
+                        })
+                        $('body').prelodr('out');
+                    }
+                });
+            }
+            @*else
+            {
+
+                Swal.fire({
+                            icon: 'error',
+                            title: '@ResourceCache.PershkrimiKontrolles("Gabim", "pergjithshem")',
+                            text: '@Html.Raw(ResourceCache.PershkrimiKontrolles("gabim1", "pergjithshem"))'
+
+                        })
+            }*@
+
+        })
+
+
+
+    }
+</script>
+
