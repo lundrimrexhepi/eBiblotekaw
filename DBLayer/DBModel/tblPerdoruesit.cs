@@ -34,6 +34,7 @@ namespace DBLayer.DBModel
         public Nullable<System.DateTime> DateLindja { get; set; }
         public int GrupiID { get; set; }
         public System.DateTime DataInsertimit { get; set; }
+        public string Perdoruesi { get; set; }
     
         public virtual tblGrupi tblGrupi { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

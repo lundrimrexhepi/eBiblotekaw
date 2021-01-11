@@ -27,7 +27,6 @@ namespace DBLayer.DBModel
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<tblAutori> tblAutori { get; set; }
         public virtual DbSet<tblDhoma> tblDhoma { get; set; }
         public virtual DbSet<tblGjuhaLibrit> tblGjuhaLibrit { get; set; }

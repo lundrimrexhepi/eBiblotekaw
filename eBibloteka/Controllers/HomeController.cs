@@ -66,7 +66,7 @@ namespace eBibloteka.Controllers
                 return View(model);
             }
 
-            var checkPerdoruesin = db.tblPerdoruesit.FirstOrDefault(x => x.Perdoruesi == model.Perdoruesi && x.Aktive == true);
+            var checkPerdoruesin = db.tblPerdoruesit.FirstOrDefault(x => x.Perdoruesi == model.Perdoruesi);
 
             if (checkPerdoruesin != null)
             {
@@ -76,14 +76,14 @@ namespace eBibloteka.Controllers
                 {
                     FormsAuthentication.SetAuthCookie(model.Perdoruesi, model.RememberMe);
                     Session["PerdoruesiID"] = checkPerdoruesin.PerdoruesiID;
-                    var grupetArray = db.fnGrupetPerPerdorues(checkPerdoruesin.PerdoruesiID, 2).ToArray();
-                    var finale = String.Join(",", grupetArray);
-                    Session["GrupiID"] = finale;
+                    //var grupetArray = checkPerdoruesin.GrupiID.ToArray();
+                 //   var finale = String.Join(",", grupetArray);
+                    Session["GrupiID"] = checkPerdoruesin.GrupiID;
                     Session["Emri"] = checkPerdoruesin.Emri;
                     Session["Perdoruesi"] = checkPerdoruesin.Perdoruesi;
                     Session["Mbiemri"] = checkPerdoruesin.Mbiemri;
                     Session["NumriPersonal"] = checkPerdoruesin.NumriPersonal;
-                    Session["Email"] = checkPerdoruesin.Emaili;
+                    Session["Email"] = checkPerdoruesin.Email;
                     ModelState.Clear();
                     return RedirectToLocal(returnUrl);
                 }
@@ -100,6 +100,15 @@ namespace eBibloteka.Controllers
             }
 
         }
+        private ActionResult RedirectToLocal(string returnUrl)
+        {
+            if (Url.IsLocalUrl(returnUrl))
+            {
+                return Redirect(returnUrl);
+            }
+            return RedirectToAction("Index", "Home");
+        }
+
         protected const int _intSaltLength = 4;
         protected const int _intSHA1Length = 20;
         protected byte[] _bytSaltedPasswordHash = new byte[_intSHA1Length];
@@ -117,9 +126,7 @@ namespace eBibloteka.Controllers
 
                 try
                 {
-                    byte[] FjaleKalimi = db.tblPerdoruesits.FirstOrDefault(x => x.Perdoruesi == perdoruesi).Fjalekalimi;
-
-
+                    byte[] FjaleKalimi = db.tblPerdoruesit.FirstOrDefault(x => x.Perdoruesi == perdoruesi).Fjalkalimi;
                     _bytSaltedPasswordHash = FjaleKalimi;
 
                     blnResult = true;
