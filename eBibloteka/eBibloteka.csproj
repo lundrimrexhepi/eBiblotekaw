@@ -154,7 +154,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LibratController.cs" />
-    <Compile Include="Controllers\LibratListaController.cs" />
+    <Compile Include="Controllers\PerdoruesiController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -164,6 +164,8 @@
     <Compile Include="Helpers\GjenerimiRaporteve.cs" />
     <Compile Include="Helpers\ReportGenerator.cs" />
     <Compile Include="Models\Librat.cs" />
+    <Compile Include="Models\PerdoruesiListViewModel.cs" />
+    <Compile Include="Models\QasjaModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -10869,7 +10871,8 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Librat\Index.cshtml" />
-    <Content Include="Views\LibratLista\Index.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Perdoruesi\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
