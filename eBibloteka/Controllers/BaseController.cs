@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 using System.Threading.Tasks;
 using System.Configuration;
-using KQZ_Votuesit.Helpers;
+using eBibloteka.Helpers;
 
 namespace eBibloteka.Controllers
 {

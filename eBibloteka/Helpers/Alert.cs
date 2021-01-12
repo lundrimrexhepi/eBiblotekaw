@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace KQZ_Votuesit.Helpers
+namespace eBibloteka.Helpers
 {
     public class Alert
     {

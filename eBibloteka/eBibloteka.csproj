@@ -54,6 +54,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="FastMember, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FastMember.1.5.0\lib\net461\FastMember.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.Common.dll</HintPath>
@@ -155,6 +158,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LibratController.cs" />
     <Compile Include="Controllers\PerdoruesiController.cs" />
+    <Compile Include="Controllers\RaportetController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -162,7 +166,6 @@
     <Compile Include="Helpers\CultureHelper.cs" />
     <Compile Include="Helpers\Enums.cs" />
     <Compile Include="Helpers\GjenerimiRaporteve.cs" />
-    <Compile Include="Helpers\ReportGenerator.cs" />
     <Compile Include="Models\Librat.cs" />
     <Compile Include="Models\PerdoruesiListViewModel.cs" />
     <Compile Include="Models\QasjaModel.cs" />
@@ -10873,6 +10876,7 @@
     <Content Include="Views\Librat\Index.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Perdoruesi\Index.cshtml" />
+    <Content Include="Views\Raportet\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

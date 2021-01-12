@@ -1,31 +1,70 @@
-﻿@{
+﻿@using eBibloteka.Helpers
+@{
     ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<link href="~/Content/Template/plugins/chart.js/Chart.css" rel="stylesheet" />
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<style>
+    .bg-warning,
+    .bg-warning > a {
+        color: white !important;
+    }
+</style>
+<div class="content-header" style="padding-bottom:15px; padding-top:0px;">
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
 </div>
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div id="divCaktoVotuesit"  class="col-lg-6 col-6">
+                <div class="small-box bg-white">
+                    <div class="inner">
+                        <h3>Librat</h3>
+                        <p>Menaxhimi i librave</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-document-text"></i>
+                    </div>
+                    <a href="@Url.Action("Index","Librat")" class="small-box-footer">
+                       Kliko <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div id="divKonfigurimet"  class="col-lg-6 col-6">
+                <!-- small card -->
+                <div class="small-box bg-white">
+                    <div class="inner">
+                        <h3>Administrimi</h3>
+                        <p>Menaxhimi i përdoruesve</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-ios-cog"></i>
+                    </div>
+                    <a href="@Url.Action("Index","Perdoruesi")" class="small-box-footer">
+                      Kliko <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div id="divPerdoruesit"  class="col-lg-6 col-6">
+                <!-- small card -->
+                <div class="small-box bg-white">
+                    <div class="inner">
+                        <h3>Raportet</h3>
+                        <p>Gjenerimi i raporteve statistikore</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-person-add"></i>
+                    </div>
+                    <a href="@Url.Action("Index","Raportet")" class="small-box-footer" style="color:white">
+                        Kliko <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+    </div>
