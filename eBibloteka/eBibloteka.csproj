@@ -157,6 +157,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HuazimiController.cs" />
+    <Compile Include="Controllers\KthimiController.cs" />
     <Compile Include="Controllers\LibratController.cs" />
     <Compile Include="Controllers\ListaHuazimitController.cs" />
     <Compile Include="Controllers\ListaLibraveController.cs" />
@@ -10893,6 +10894,7 @@
     <Folder Include="Content\Template\bower_components\select2\docs\_layouts\" />
     <Folder Include="Content\Template\bower_components\select2\docs\_sass\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\Kthimi\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

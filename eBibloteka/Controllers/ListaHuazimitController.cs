@@ -38,7 +38,7 @@ namespace eBibloteka.Controllers
                                      p.DataHuazimit,
                                      p.DataKthimit
 
-                                 }).ToList();
+                                 }).OrderByDescending(x=>x.HuazimiID).ToList();
             List<Huazimi> ListaMushur = new List<Huazimi>();
             foreach (var item in ListaMeLibrat)
             {

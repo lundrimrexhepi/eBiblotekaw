@@ -36,7 +36,7 @@ namespace eBibloteka.Controllers
                                      p.Sasia,                                  
                                      p.LibriID
 
-                                 }).ToList();
+                                 }).OrderByDescending(x=>x.LibriID).ToList();
             List<Librat> ListaMushur = new List<Librat>();
             foreach (var item in ListaMeLibrat)
             {

@@ -88,7 +88,7 @@ namespace eBibloteka.Controllers
                     if (int.Parse(Session["Rasti"].ToString()) == 1)
                     {
                         tblLibri objLibri = new tblLibri();
-                        objLibri.ISBN = model.ISBN;
+                        objLibri.ISBN = GjeneroISBN();
                         objLibri.TittulliLibrit = model.TittulliLibrit;
                         objLibri.Sasia = model.Sasia;
                         objLibri.AutoriID = model.AutoriID;

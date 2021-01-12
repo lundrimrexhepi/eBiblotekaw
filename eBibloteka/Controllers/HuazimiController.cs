@@ -41,26 +41,36 @@ namespace eBibloteka.Controllers
                 if (ModelState.IsValid)
                 {
 
-
+                    var validimiStokut = db.tblLibri.Where(x => x.LibriID == model.LibriID).FirstOrDefault();
                     if (int.Parse(Session["Rasti"].ToString()) == 1)
                     {
-                        tblHuazimi objHuazimi = new tblHuazimi();
-                        objHuazimi.LibriID = model.LibriID;
-                        objHuazimi.PerdoruesiID = int.Parse(Session["PerdoruesiID"].ToString());
-                        objHuazimi.PerdoruesiIDLexuesi = model.PerdoruesiIDLexuesi;
-                        objHuazimi.Sasia = model.Sasia;
-                        objHuazimi.Shenime = model.Shenime;
-                        objHuazimi.DataHuazimit = model.DataHuazimit;
-                        objHuazimi.DataKthimit = model.DataKthimit;
+                      
+                        if (validimiStokut.Sasia >= model.Sasia)
+                        {
+                            tblHuazimi objHuazimi = new tblHuazimi();
+                            objHuazimi.LibriID = model.LibriID;
+                            objHuazimi.PerdoruesiID = int.Parse(Session["PerdoruesiID"].ToString());
+                            objHuazimi.PerdoruesiIDLexuesi = model.PerdoruesiIDLexuesi;
+                            objHuazimi.Sasia = model.Sasia;
+                            objHuazimi.Shenime = model.Shenime;
+                            objHuazimi.DataHuazimit = model.DataHuazimit;
+                            objHuazimi.DataKthimit = model.DataKthimit;
 
-                        obj._HuazimiRepository.Insert(objHuazimi);
-                        obj.Save();
-                        obj.Dispose();
+                            obj._HuazimiRepository.Insert(objHuazimi);
+                            obj.Save();
+                            obj.Dispose();
+                        }
+                        else
+                        {
+                            return Json(new { success = false, message = "Nuk ka sasi te mjafut" });
+                        }
 
                     }
                     else
                     {
-                        tblHuazimi objHuazimi = new tblHuazimi();
+                        if (validimiStokut.Sasia >= model.Sasia)
+                        {
+                            tblHuazimi objHuazimi = new tblHuazimi();
                         objHuazimi.LibriID = model.LibriID;
                         objHuazimi.PerdoruesiID = int.Parse(Session["PerdoruesiID"].ToString());
                         objHuazimi.PerdoruesiIDLexuesi = model.PerdoruesiIDLexuesi;
@@ -72,6 +82,11 @@ namespace eBibloteka.Controllers
                         obj._HuazimiRepository.Update(objHuazimi);
                         obj.Save();
                         obj.Dispose();
+                        }
+                        else
+                        {
+                            return Json(new { success = false, message = "Nuk ka sasi te mjaftuar" });
+                        }
                     }
 
                 }
