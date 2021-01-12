@@ -3,97 +3,109 @@
     ViewBag.Title = "Index";
 }
 
-
 <div class="row">
     <section class="col-lg-12">
-        <div class="container-fluid">
-            <!-- SELECT2 EXAMPLE -->
-            <div class="card card-default">
+        <!-- Custom tabs (Charts with tabs)-->
+        <br />
+      >
+
+            <div class="card-body">
+                <div class="row">
+                    <section class="col-lg-12">
+                        <div class="container-fluid">
+                            <!-- SELECT2 EXAMPLE -->
+                            <div class="card card-default">
 
 
-                <div class="card-header">
-                    <h3 class="card-title"> Regjistrimi Librave</h3>
-                    <div class="card-tools">
-                    </div>
-                </div>
-                @using (Ajax.BeginForm("RegjistroLibrin", "Librat", new AjaxOptions { HttpMethod = "POST", OnSuccess = "successSubmit", OnFailure = "errorSubmit" }))
-                {
+                                <div class="card-header">
+                                    <h3 class="card-title"> Regjistrimi Librave</h3>
+                                    <div class="card-tools">
+                                    </div>
+                                </div>
+                                @using (Ajax.BeginForm("RegjistroLibrin", "Librat", new AjaxOptions { HttpMethod = "POST", OnSuccess = "successSubmit", OnFailure = "errorSubmit" }))
+                                {
 
-                    <!-- /.card-header -->
-                    <div class="card-body">
+                                    <!-- /.card-header -->
+                                    <div class="card-body">
 
-                        <div class="row">
-                            <div class="form-group col-md-3">
+                                        <div class="row">
+                                            <div class="form-group col-md-3">
 
-                                <label for="inputEmail3" class="col-form-label">ISB</label>
-                                @Html.TextBoxFor(x => x.ISBN, new { @class = "form-control", @readonly = "true" })
-                            </div>
-                            <div class="form-group col-md-3">
-                                <label for="inputEmail3" class="col-form-label">Titulli Librit</label>
-                                @Html.TextBoxFor(x => x.TittulliLibrit, new { @class = "form-control" })
-                            </div>
-                            <div class="form-group col-md-3" style="padding-right:0px;">
-                                <label for="inputEmail3" class="col-form-label">Sasia</label>
-                                @Html.TextBoxFor(x => x.Sasia, new { @class = "form-control" })
-                            </div>
-                            <div class="form-group col-md-3" style="padding-right:0px;">
-                                <label for="inputEmail3" class="col-form-label">Nr Fqeve</label>
-                                @Html.TextBoxFor(x => x.NumriFaqeve, new { @class = "form-control" })
-                            </div>
-                            <div class="form-group col-md-3" style="padding-right:0px;">
-                                <label for="inputEmail3" class="col-form-label">Botimi</label>
-                                @Html.TextBoxFor(x => x.Botimi, new { @class = "form-control" })
-                            </div>
-                            <div class="form-group col-md-3">
-                                <label for="inputEmail3" class="col-form-label">Autori</label>
-                                @Html.DropDownListFor(x => x.AutoriID, (SelectList)ViewBag.Autori, "", new { @class = "form-control" })
-                            </div>
-                            <div class="form-group col-md-3">
-                                <label for="inputEmail3" class="col-form-label">Gjuha Librit</label>
-                                @Html.DropDownListFor(x => x.GjuhaLibritID, (SelectList)ViewBag.GjuhaLibrit, "", new { @class = "form-control" })
-                            </div>
-                            <div class="form-group col-md-3">
-                                <label for="inputEmail3" class="col-form-label">Viti Botimi</label>
-                                @Html.DropDownListFor(x => x.VitiBotimit, (SelectList)ViewBag.VitiBotimit, "", new { @class = "form-control" })
-                            </div>
-                            <div class="form-group col-md-3">
-                                <label for="inputEmail3" class="col-form-label">Shtepia Botuse</label>
-                                @Html.DropDownListFor(x => x.ShtepiaBotuseID, (SelectList)ViewBag.ShtepiaBotuese, "", new { @class = "form-control" })
-                            </div>
-                            <div class="form-group col-md-3">
-                                <label for="inputEmail3" class="col-form-label">Dhoma</label>
-                                @Html.DropDownListFor(x => x.DhomaID, (SelectList)ViewBag.Dhoma, "", new { @class = "form-control" })
-                            </div>
-                            <div class="form-group col-md-3">
-                                <label for="inputEmail3" class="col-form-label">Rafti</label>
-                                @Html.DropDownListFor(x => x.RaftiID, (SelectList)ViewBag.Rafti, "", new { @class = "form-control" })
-                            </div>
-                            <div class="form-group col-md-3">
-                                <label for="inputEmail3" class="col-form-label">Lexuesi</label>
-                                @Html.DropDownListFor(x => x.PerdoruesiIDLexuesit, (SelectList)ViewBag.Lexuesi, "", new { @class = "form-control" })
-                            </div>
-
-
+                                                <label for="inputEmail3" class="col-form-label">ISB</label>
+                                                @Html.TextBoxFor(x => x.ISBN, new { @class = "form-control", @readonly = "true" })
+                                            </div>
+                                            <div class="form-group col-md-3">
+                                                <label for="inputEmail3" class="col-form-label">Titulli Librit</label>
+                                                @Html.TextBoxFor(x => x.TittulliLibrit, new { @class = "form-control" })
+                                            </div>
+                                            <div class="form-group col-md-3" style="padding-right:0px;">
+                                                <label for="inputEmail3" class="col-form-label">Sasia</label>
+                                                @Html.TextBoxFor(x => x.Sasia, new { @class = "form-control" })
+                                            </div>
+                                            <div class="form-group col-md-3" style="padding-right:0px;">
+                                                <label for="inputEmail3" class="col-form-label">Nr Fqeve</label>
+                                                @Html.TextBoxFor(x => x.NumriFaqeve, new { @class = "form-control" })
+                                            </div>
+                                            <div class="form-group col-md-3" style="padding-right:0px;">
+                                                <label for="inputEmail3" class="col-form-label">Botimi</label>
+                                                @Html.TextBoxFor(x => x.Botimi, new { @class = "form-control" })
+                                            </div>
+                                            <div class="form-group col-md-3">
+                                                <label for="inputEmail3" class="col-form-label">Autori</label>
+                                                @Html.DropDownListFor(x => x.AutoriID, (SelectList)ViewBag.Autori, "", new { @class = "form-control" })
+                                            </div>
+                                            <div class="form-group col-md-3">
+                                                <label for="inputEmail3" class="col-form-label">Gjuha Librit</label>
+                                                @Html.DropDownListFor(x => x.GjuhaLibritID, (SelectList)ViewBag.GjuhaLibrit, "", new { @class = "form-control" })
+                                            </div>
+                                            <div class="form-group col-md-3">
+                                                <label for="inputEmail3" class="col-form-label">Viti Botimi</label>
+                                                @Html.DropDownListFor(x => x.VitiBotimit, (SelectList)ViewBag.VitiBotimit, "", new { @class = "form-control" })
+                                            </div>
+                                            <div class="form-group col-md-3">
+                                                <label for="inputEmail3" class="col-form-label">Shtepia Botuse</label>
+                                                @Html.DropDownListFor(x => x.ShtepiaBotuseID, (SelectList)ViewBag.ShtepiaBotuese, "", new { @class = "form-control" })
+                                            </div>
+                                            <div class="form-group col-md-3">
+                                                <label for="inputEmail3" class="col-form-label">Dhoma</label>
+                                                @Html.DropDownListFor(x => x.DhomaID, (SelectList)ViewBag.Dhoma, "", new { @class = "form-control" })
+                                            </div>
+                                            <div class="form-group col-md-3">
+                                                <label for="inputEmail3" class="col-form-label">Rafti</label>
+                                                @Html.DropDownListFor(x => x.RaftiID, (SelectList)ViewBag.Rafti, "", new { @class = "form-control" })
+                                            </div>
+                                            <div class="form-group col-md-3">
+                                                <label for="inputEmail3" class="col-form-label">Lexuesi</label>
+                                                @Html.DropDownListFor(x => x.PerdoruesiIDLexuesit, (SelectList)ViewBag.Lexuesi, "", new { @class = "form-control" })
+                                            </div>
 
 
 
+
+
+                                        </div>
+
+
+                                        <div class="col-md-2">
+                                            <input type="submit" class="btn btn-lightblue btn-flat mr-1" style=" width:100%;" value="Ruaj Librin" />
+                                        </div>
+
+
+                                    </div>
+                                }
+
+                                <div class="card-footer">
+                                </div>
+                            </div>
                         </div>
-
-
-                        <div class="col-md-2">
-                            <input type="submit" class="btn btn-lightblue btn-flat mr-1" style=" width:100%;" value="Ruaj Librin" />
-                        </div>
-
-
-                    </div>
-                }
-
-                <div class="card-footer">
+                    </section>
                 </div>
             </div>
-        </div>
+  
     </section>
+
 </div>
+
 
 
 

@@ -14,12 +14,39 @@ namespace eBibloteka.Controllers
     {
         UnitOfWork obj = new UnitOfWork();
         BiblotekaEntities db = new BiblotekaEntities();
-        public ActionResult Index()
+        public ActionResult Index(int l=0)
         {
             MbushKombot();
             Librat modeli = new Librat();
-            modeli.Rasti = 1;
-            modeli.ISBN = GjeneroISBN(); 
+            Session["Rasti"] = 0;
+            if (l==0)
+            {
+                modeli.Rasti = 1;
+                modeli.ISBN = GjeneroISBN();
+                Session["Rasti"] = 1;
+            }
+            else
+            {
+                var TedhenatLibri = db.tblLibri.Where(x => x.LibriID == l).FirstOrDefault();
+                modeli.ISBN = TedhenatLibri.ISBN;
+                modeli.TittulliLibrit = TedhenatLibri.TittulliLibrit;
+                modeli.Sasia = TedhenatLibri.Sasia;
+                modeli.AutoriID = TedhenatLibri.AutoriID;
+                modeli.GjuhaLibritID = TedhenatLibri.GjuhaLibritID;
+                modeli.Botimi = TedhenatLibri.Botimi;
+                modeli.VitiBotimit = TedhenatLibri.VitiBotimit;
+                modeli.NumriFaqeve = TedhenatLibri.NumriFaqeve;
+                modeli.ShtepiaBotuseID = TedhenatLibri.ShtepiaBotuseID;
+                modeli.DhomaID = TedhenatLibri.DhomaID;
+                modeli.RaftiID = TedhenatLibri.RaftiID;
+                modeli.DonacionPershkrimi = TedhenatLibri.DonacionPershkrimi;
+                modeli.DataInsertimi =DateTime.Parse(TedhenatLibri.DataInsertimi.ToString());
+                modeli.PerdoruesiID = TedhenatLibri.PerdoruesiID;// model.PerdoruesiID;
+                modeli.PerdoruesiIDLexuesit = TedhenatLibri.PerdoruesiIDLexuesi;
+                Session["Rasti"] = 2;
+            }
+            
+          
             return View(modeli);
         }
         public void MbushKombot()
@@ -56,10 +83,10 @@ namespace eBibloteka.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                   
 
-                    //if (model.Rasti == 1)
-                    //{
+
+                    if (int.Parse(Session["Rasti"].ToString()) == 1)
+                    {
                         tblLibri objLibri = new tblLibri();
                         objLibri.ISBN = model.ISBN;
                         objLibri.TittulliLibrit = model.TittulliLibrit;
@@ -74,28 +101,37 @@ namespace eBibloteka.Controllers
                         objLibri.RaftiID = model.RaftiID;
                         objLibri.DonacionPershkrimi = model.DonacionPershkrimi;
                         objLibri.DataInsertimi = DateTime.Now;
-                    objLibri.PerdoruesiID = model.PerdoruesiIDLexuesit;// model.PerdoruesiID;
-                        objLibri.PerdoruesiIDLexuesi = model.PerdoruesiIDLexuesit;
+                        objLibri.PerdoruesiID = model.PerdoruesiIDLexuesit;// model.PerdoruesiID;
+                        objLibri.PerdoruesiIDLexuesi = (int)model.PerdoruesiIDLexuesit;
 
 
                         obj._BookRepository.Insert(objLibri); 
                            obj.Save();
                         obj.Dispose();
-                        //using (var dbcxtransaction = db.Database.BeginTransaction())
-                        //{
-                        //    try
-                        //    {
-
-
-                        //            return Json(new { success = false, message ="" });
-
-                        //    }
-                        //    catch (Exception ex)
-                        //    {
-                        //        return Json(new { success = false, message = "" });
-                        //    }
-                        //}
-                   // }
+                       
+                    }
+                    else
+                    {
+                        tblLibri objLibri = new tblLibri();
+                        objLibri.ISBN = model.ISBN;
+                        objLibri.TittulliLibrit = model.TittulliLibrit;
+                        objLibri.Sasia = model.Sasia;
+                        objLibri.AutoriID = model.AutoriID;
+                        objLibri.GjuhaLibritID = model.GjuhaLibritID;
+                        objLibri.Botimi = model.Botimi;
+                        objLibri.VitiBotimit = model.VitiBotimit;
+                        objLibri.NumriFaqeve = model.NumriFaqeve;
+                        objLibri.ShtepiaBotuseID = model.ShtepiaBotuseID;
+                        objLibri.DhomaID = model.DhomaID;
+                        objLibri.RaftiID = model.RaftiID;
+                        objLibri.DonacionPershkrimi = model.DonacionPershkrimi;
+                        objLibri.DataInsertimi = DateTime.Now;
+                        objLibri.PerdoruesiID = model.PerdoruesiIDLexuesit;// model.PerdoruesiID;
+                        objLibri.PerdoruesiIDLexuesi = (int)model.PerdoruesiIDLexuesit;
+                        obj._BookRepository.Update(objLibri);
+                        obj.Save();
+                        obj.Dispose();
+                    }
 
                 }
                 else
@@ -117,6 +153,7 @@ namespace eBibloteka.Controllers
             }
             return Json(new { success = true, LibriID = 0 });
         }
+      
         private string GjeneroISBN()
         {           
             string strUNIREF = "", strNumriSerik = "", strFakulteti = "";

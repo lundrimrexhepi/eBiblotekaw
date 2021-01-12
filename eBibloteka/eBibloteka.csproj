@@ -154,6 +154,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LibratController.cs" />
+    <Compile Include="Controllers\ListaLibraveController.cs" />
     <Compile Include="Controllers\PerdoruesiController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -10873,6 +10874,7 @@
     <Content Include="Views\Librat\Index.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Perdoruesi\Index.cshtml" />
+    <Content Include="Views\ListaLibrave\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
