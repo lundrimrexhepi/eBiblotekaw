@@ -28,7 +28,7 @@
                                 <label for="inputEmail3" class="col-form-label">ISB</label>
                                 @Html.TextBoxFor(x => x.ISBN, new { @class = "form-control", @readonly = "true" })
                             </div>
-                            <div class="form-group col-md-3" style="display:none">
+                            <div class="form-group col-md-3">
                                 <label for="inputEmail3" class="col-form-label">Titulli Librit</label>
                                 @Html.TextBoxFor(x => x.TittulliLibrit, new { @class = "form-control" })
                             </div>
@@ -81,7 +81,7 @@
 
 
                         <div class="col-md-2">
-                            <input type="submit" class="btn btn-lightblue btn-flat mr-1"  style=" width:100%;" value="Ruaj Librin" />
+                            <input type="submit" class="btn btn-lightblue btn-flat mr-1" style=" width:100%;" value="Ruaj Librin" />
                         </div>
 
 
@@ -95,30 +95,39 @@
     </section>
 </div>
 
-<script>
- function successSubmit(result) {
-            
-            if (!result.success) {
-                if (result.message.length > 0)
-                    alert(result.message)
-                else {
 
-                    if (Object.keys(result.errors).length>0) {
-                        $.each(result.errors, function (index, item) {
-                            if (item.length > 0) {
-                                $("#" + index).css('border-color', 'red');
-                                $("." + index).html(item);
 
-                            }
-                        });
-                    }
-                }
-              
-            }
+    <script>
+        $(document).ready(function () {
+    function successSubmit(result) {
+
+        if (!result.success) {
+            alert("visa1");
+            if (result.message.length > 0)
+                alert(result.message)
             else {
-                     window.location.href = "@Url.Action("Index", "Kerkesat")";
-                   
 
-                    }
-                    }
+                if (Object.keys(result.errors).length > 0) {
+                    $.each(result.errors, function (index, item) {
+                        if (item.length > 0) {
+                            $("#" + index).css('border-color', 'red');
+                            $("." + index).html(item);
+
+                        }
+                    });
+                }
+            }
+
+        }
+        else {
+            alert("visa2");
+            window.location.href = "@Url.Action("Index", "Librat")";
+
+
+        }
+    }
+   
+});
+
     </script>
+

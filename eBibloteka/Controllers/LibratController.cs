@@ -18,6 +18,7 @@ namespace eBibloteka.Controllers
         {
             MbushKombot();
             Librat modeli = new Librat();
+            modeli.Rasti = 1;
             modeli.ISBN = GjeneroISBN(); 
             return View(modeli);
         }
@@ -32,11 +33,10 @@ namespace eBibloteka.Controllers
             ViewBag.Autori = new SelectList(TeDhenatAutori, "AutoriID", "Value");
             ViewBag.GjuhaLibrit = new SelectList(db.tblGjuhaLibrit.ToList(), "GjuhaLibritID", "Pershkrimi");
             ViewBag.Dhoma = new SelectList(db.tblDhoma.ToList(), "DhomaID", "Pershkrimi");
-          //  ViewBag.RaftiID = new SelectList(db.tblRafti.ToList(), "RaftiID", "Pershkrimi");
             ViewBag.Rafti = new SelectList(db.tblRafti.ToList(), "RaftiID", "PershkrimiRafti");
             ViewBag.Lexuesi = new SelectList(db.tblPerdoruesit.ToList(), "PerdoruesiID", "Perdoruesi");
             ViewBag.VitiBotimit = new SelectList(
-             Enumerable.Range(1900, 121)
+             Enumerable.Range(1900, 2021)
              .OrderByDescending(month => month)
              .Select(Year => new SelectListItem
              {
@@ -58,24 +58,45 @@ namespace eBibloteka.Controllers
                 {
                    
 
-                    if (model.Rasti == 2)
-                    {
-                        using (var dbcxtransaction = db.Database.BeginTransaction())
-                        {
-                            try
-                            {
-                             
-                               
-                                    return Json(new { success = false, message ="" });
-                               
-                            }
-                            catch (Exception ex)
-                            {
-                                return Json(new { success = false, message = "" });
-                            }
-                        }
-                    }
-                    
+                    //if (model.Rasti == 1)
+                    //{
+                        tblLibri objLibri = new tblLibri();
+                        objLibri.ISBN = model.ISBN;
+                        objLibri.TittulliLibrit = model.TittulliLibrit;
+                        objLibri.Sasia = model.Sasia;
+                        objLibri.AutoriID = model.AutoriID;
+                        objLibri.GjuhaLibritID = model.GjuhaLibritID;
+                        objLibri.Botimi = model.Botimi;
+                        objLibri.VitiBotimit = model.VitiBotimit;
+                        objLibri.NumriFaqeve = model.NumriFaqeve;
+                        objLibri.ShtepiaBotuseID = model.ShtepiaBotuseID;
+                        objLibri.DhomaID = model.DhomaID;
+                        objLibri.RaftiID = model.RaftiID;
+                        objLibri.DonacionPershkrimi = model.DonacionPershkrimi;
+                        objLibri.DataInsertimi = DateTime.Now;
+                    objLibri.PerdoruesiID = model.PerdoruesiIDLexuesit;// model.PerdoruesiID;
+                        objLibri.PerdoruesiIDLexuesi = model.PerdoruesiIDLexuesit;
+
+
+                        obj._BookRepository.Insert(objLibri); 
+                           obj.Save();
+                        obj.Dispose();
+                        //using (var dbcxtransaction = db.Database.BeginTransaction())
+                        //{
+                        //    try
+                        //    {
+
+
+                        //            return Json(new { success = false, message ="" });
+
+                        //    }
+                        //    catch (Exception ex)
+                        //    {
+                        //        return Json(new { success = false, message = "" });
+                        //    }
+                        //}
+                   // }
+
                 }
                 else
                 {
@@ -94,7 +115,7 @@ namespace eBibloteka.Controllers
             {
                 return Json(new { success = false, message = ex.InnerException.Message });
             }
-            return null;
+            return Json(new { success = true, LibriID = 0 });
         }
         private string GjeneroISBN()
         {           
