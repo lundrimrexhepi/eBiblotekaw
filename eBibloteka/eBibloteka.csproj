@@ -153,7 +153,9 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HuazimiController.cs" />
     <Compile Include="Controllers\LibratController.cs" />
+    <Compile Include="Controllers\ListaHuazimitController.cs" />
     <Compile Include="Controllers\ListaLibraveController.cs" />
     <Compile Include="Controllers\PerdoruesiController.cs" />
     <Compile Include="Global.asax.cs">
@@ -164,6 +166,7 @@
     <Compile Include="Helpers\Enums.cs" />
     <Compile Include="Helpers\GjenerimiRaporteve.cs" />
     <Compile Include="Helpers\ReportGenerator.cs" />
+    <Compile Include="Models\Huazimi.cs" />
     <Compile Include="Models\Librat.cs" />
     <Compile Include="Models\PerdoruesiListViewModel.cs" />
     <Compile Include="Models\QasjaModel.cs" />
@@ -10875,6 +10878,8 @@
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Perdoruesi\Index.cshtml" />
     <Content Include="Views\ListaLibrave\Index.cshtml" />
+    <Content Include="Views\Huazimi\Index.cshtml" />
+    <Content Include="Views\ListaHuazimit\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

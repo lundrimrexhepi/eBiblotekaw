@@ -78,6 +78,7 @@
           <Property Name="DataHuazimit" Type="datetime" />
           <Property Name="DataKthimit" Type="datetime" />
           <Property Name="Shenime" Type="nvarchar" MaxLength="200" />
+          <Property Name="PerdoruesiIDLexuesi" Type="int" />
         </EntityType>
         <EntityType Name="tblKomunat">
           <Key>
@@ -120,7 +121,6 @@
           <Property Name="DonacionPershkrimi" Type="nvarchar" MaxLength="200" />
           <Property Name="DataInsertimi" Type="datetime" />
           <Property Name="PerdoruesiID" Type="int" />
-          <Property Name="PerdoruesiIDLexuesi" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="tblPerdoruesit">
           <Key>
@@ -491,7 +491,7 @@
             <End Role="tblRafti" EntitySet="tblRafti" />
             <End Role="tblLibri" EntitySet="tblLibri" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -582,6 +582,7 @@
           <Property Name="DataHuazimit" Type="DateTime" Precision="3" />
           <Property Name="DataKthimit" Type="DateTime" Precision="3" />
           <Property Name="Shenime" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PerdoruesiIDLexuesi" Type="Int32" />
           <NavigationProperty Name="tblLibri" Relationship="BiblotekaModel.FK_tblHuazimi_tblLibri" FromRole="tblHuazimi" ToRole="tblLibri" />
           <NavigationProperty Name="tblPerdoruesit" Relationship="BiblotekaModel.FK_tblHuazimi_tblPerdoruesit" FromRole="tblHuazimi" ToRole="tblPerdoruesit" />
         </EntityType>
@@ -629,7 +630,6 @@
           <Property Name="DonacionPershkrimi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="DataInsertimi" Type="DateTime" Precision="3" />
           <Property Name="PerdoruesiID" Type="Int32" />
-          <Property Name="PerdoruesiIDLexuesi" Type="Int32" Nullable="false" />
           <NavigationProperty Name="tblAutori" Relationship="BiblotekaModel.FK_tblLibri_tblAutori" FromRole="tblLibri" ToRole="tblAutori" />
           <NavigationProperty Name="tblDhoma" Relationship="BiblotekaModel.FK_tblLibri_tblDhoma" FromRole="tblLibri" ToRole="tblDhoma" />
           <NavigationProperty Name="tblGjuhaLibrit" Relationship="BiblotekaModel.FK_tblLibri_tblGjuhaLibrit" FromRole="tblLibri" ToRole="tblGjuhaLibrit" />
@@ -821,7 +821,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -923,6 +923,7 @@
           <EntitySetMapping Name="tblHuazimi">
             <EntityTypeMapping TypeName="BiblotekaModel.tblHuazimi">
               <MappingFragment StoreEntitySet="tblHuazimi">
+                <ScalarProperty Name="PerdoruesiIDLexuesi" ColumnName="PerdoruesiIDLexuesi" />
                 <ScalarProperty Name="Shenime" ColumnName="Shenime" />
                 <ScalarProperty Name="DataKthimit" ColumnName="DataKthimit" />
                 <ScalarProperty Name="DataHuazimit" ColumnName="DataHuazimit" />
@@ -960,7 +961,6 @@
           <EntitySetMapping Name="tblLibri">
             <EntityTypeMapping TypeName="BiblotekaModel.tblLibri">
               <MappingFragment StoreEntitySet="tblLibri">
-                <ScalarProperty Name="PerdoruesiIDLexuesi" ColumnName="PerdoruesiIDLexuesi" />
                 <ScalarProperty Name="PerdoruesiID" ColumnName="PerdoruesiID" />
                 <ScalarProperty Name="DataInsertimi" ColumnName="DataInsertimi" />
                 <ScalarProperty Name="DonacionPershkrimi" ColumnName="DonacionPershkrimi" />
@@ -1015,7 +1015,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

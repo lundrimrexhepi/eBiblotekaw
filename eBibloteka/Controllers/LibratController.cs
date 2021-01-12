@@ -42,7 +42,7 @@ namespace eBibloteka.Controllers
                 modeli.DonacionPershkrimi = TedhenatLibri.DonacionPershkrimi;
                 modeli.DataInsertimi =DateTime.Parse(TedhenatLibri.DataInsertimi.ToString());
                 modeli.PerdoruesiID = TedhenatLibri.PerdoruesiID;// model.PerdoruesiID;
-                modeli.PerdoruesiIDLexuesit = TedhenatLibri.PerdoruesiIDLexuesi;
+               // modeli.PerdoruesiIDLexuesit = TedhenatLibri.PerdoruesiIDLexuesi;
                 Session["Rasti"] = 2;
             }
             
@@ -101,8 +101,8 @@ namespace eBibloteka.Controllers
                         objLibri.RaftiID = model.RaftiID;
                         objLibri.DonacionPershkrimi = model.DonacionPershkrimi;
                         objLibri.DataInsertimi = DateTime.Now;
-                        objLibri.PerdoruesiID = model.PerdoruesiIDLexuesit;// model.PerdoruesiID;
-                        objLibri.PerdoruesiIDLexuesi = (int)model.PerdoruesiIDLexuesit;
+                        objLibri.PerdoruesiID = 2;// model.PerdoruesiID;
+                       // objLibri.PerdoruesiIDLexuesi = (int)model.PerdoruesiIDLexuesit;
 
 
                         obj._BookRepository.Insert(objLibri); 
@@ -126,8 +126,8 @@ namespace eBibloteka.Controllers
                         objLibri.RaftiID = model.RaftiID;
                         objLibri.DonacionPershkrimi = model.DonacionPershkrimi;
                         objLibri.DataInsertimi = DateTime.Now;
-                        objLibri.PerdoruesiID = model.PerdoruesiIDLexuesit;// model.PerdoruesiID;
-                        objLibri.PerdoruesiIDLexuesi = (int)model.PerdoruesiIDLexuesit;
+                        objLibri.PerdoruesiID =2;// model.PerdoruesiID;
+                    //    objLibri.PerdoruesiIDLexuesi = (int)model.PerdoruesiIDLexuesit;
                         obj._BookRepository.Update(objLibri);
                         obj.Save();
                         obj.Dispose();

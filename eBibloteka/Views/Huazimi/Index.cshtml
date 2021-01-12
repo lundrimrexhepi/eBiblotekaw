@@ -1,0 +1,169 @@
+﻿@model eBibloteka.Models.Huazimi
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    <section class="col-lg-12">
+        <!-- Custom tabs (Charts with tabs)-->
+        <br />
+
+
+        <div class="card-body">
+            <div class="row">
+                <section class="col-lg-12">
+                    <div class="container-fluid">
+                        <!-- SELECT2 EXAMPLE -->
+                        <div class="card card-default">
+
+
+                            <div class="card-header">
+                                <h3 class="card-title"> Regjistrimi Huazimit</h3>
+                                <div class="card-tools">
+                                </div>
+                            </div>
+                          
+
+                                <!-- /.card-header -->
+                                <div class="card-body">
+
+                                    <div class="row">
+                                        <div class="form-group col-md-2">
+                                            <label for="inputEmail3" class="col-form-label">Lirbri</label>
+                                            @Html.DropDownListFor(x => x.LibriID, (SelectList)ViewBag.Libri, "", new { @class = "form-control" })
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="inputEmail3" class="col-form-label">Lexuesi</label>
+                                            @Html.DropDownListFor(x => x.PerdoruesiIDLexuesi, (SelectList)ViewBag.Lexuesi, "", new { @class = "form-control" })
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="inputEmail3" class="col-form-label">Sasia</label>
+                                            @Html.TextBoxFor(x => x.Sasia, new { @class = "form-control" })
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="inputEmail3" class="col-form-label">Shenime</label>
+                                            @Html.TextBoxFor(x => x.Shenime, new { @class = "form-control" })
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="inputEmail3" class="col-form-label">Data Huazimit</label>
+                                            @Html.TextBoxFor(model => model.DataHuazimit, "{0:yyyy-MM-dd}", new { @type = "date", @class = "form-control datepicker", @Placeholder = "dd/MM/YYYY" })
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="inputEmail3" class="col-form-label">Data kthimit</label>
+                                            @Html.TextBoxFor(model => model.DataKthimit, "{0:yyyy-MM-dd}", new { @type = "date", @class = "form-control datepicker", @Placeholder = "dd/MM/YYYY" })
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="col-md-2">
+                                        <input type="submit" class="btn btn-lightblue btn-flat mr-1" style=" width:100%;" value="Ruaj Huazimin"  onclick="Ruaj()"/>
+                                    </div>
+
+
+                                </div>
+                        
+
+                            <div class="card-footer">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+    </section>
+
+</div>
+
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/scripts/jquery.validate.min.js"></script>
+<script src="~/scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Scripts/ajax-unobtrusive.js"></script>
+<link href="~/Content/prelodr.min.css" rel="stylesheet" />
+<script src="~/Content/jquery.toast.js"></script>
+<script>
+
+    function Ruaj() {
+        var LibriID = $('#LibriID').val();
+        var PerdoruesiIDLexuesi = $('#PerdoruesiIDLexuesi').val();
+        var PerdoruesiIDLexuesi = $('#PerdoruesiIDLexuesi').val();
+        var Sasia = $('#Sasia').val();
+        var Shenime = $('#Shenime').val();
+        var DataHuazimit = $('#DataHuazimit').val();
+        var DataKthimit = $('#DataKthimit').val();
+
+
+
+            $.ajax({
+                type: 'POST',
+
+                    url: '@Url.Action("RegjistroHuazimin", "Huazimi")',
+                data: {
+                    LibriID: LibriID,
+                    PerdoruesiIDLexuesi: PerdoruesiIDLexuesi,
+                    Sasia: Sasia,
+                    Shenime: Shenime,
+                    DataHuazimit: DataHuazimit,
+                    DataKthimit: DataKthimit
+
+                },
+                    success: function (data) {
+
+               window.location.href = "@Url.Action("Index", "Librat")";
+
+                    }
+                    ,
+                    error: function (ex) {
+
+                        if (result.message.length > 0)
+                            alert(result.message)
+                        else {
+
+                            if (Object.keys(result.errors).length > 0) {
+                                $.each(result.errors, function (index, item) {
+                                    if (item.length > 0) {
+                                        $("#" + index).css('border-color', 'red');
+                                        $("." + index).html(item);
+
+                                    }
+                                });
+                            }
+                        }
+                    }
+                });
+    }
+
+
+
+            function successSubmit(result) {
+                alert("TEST");
+
+        if (!result.success) {
+            if (result.message.length > 0)
+                alert(result.message)
+            else {
+
+                if (Object.keys(result.errors).length > 0) {
+                    $.each(result.errors, function (index, item) {
+                        if (item.length > 0) {
+                            $("#" + index).css('border-color', 'red');
+                            $("." + index).html(item);
+
+                        }
+                    });
+                }
+            }
+
+        }
+        else {
+            window.location.href = "@Url.Action("Index", "Librat")";
+
+        }
+    }
+
+
+
+</script>
+

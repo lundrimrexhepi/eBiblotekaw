@@ -36,7 +36,6 @@ namespace DBLayer.DBModel
         public string DonacionPershkrimi { get; set; }
         public Nullable<System.DateTime> DataInsertimi { get; set; }
         public Nullable<int> PerdoruesiID { get; set; }
-        public int PerdoruesiIDLexuesi { get; set; }
     
         public virtual tblAutori tblAutori { get; set; }
         public virtual tblDhoma tblDhoma { get; set; }

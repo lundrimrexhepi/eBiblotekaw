@@ -5,16 +5,16 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="d14e445bf5654e0ca3d5076ff87707e6" Name="Diagram1">
-        <EntityTypeShape EntityType="BiblotekaModel.tblAutori" Width="1.5" PointX="3" PointY="15.5" />
-        <EntityTypeShape EntityType="BiblotekaModel.tblDhoma" Width="1.5" PointX="3" PointY="10.75" />
-        <EntityTypeShape EntityType="BiblotekaModel.tblGjuhaLibrit" Width="1.5" PointX="3" PointY="13.125" />
-        <EntityTypeShape EntityType="BiblotekaModel.tblGrupi" Width="1.5" PointX="0.75" PointY="4" />
+        <EntityTypeShape EntityType="BiblotekaModel.tblAutori" Width="1.5" PointX="3" PointY="10.75" />
+        <EntityTypeShape EntityType="BiblotekaModel.tblDhoma" Width="1.5" PointX="3" PointY="15.625" />
+        <EntityTypeShape EntityType="BiblotekaModel.tblGjuhaLibrit" Width="1.5" PointX="3" PointY="13.375" />
+        <EntityTypeShape EntityType="BiblotekaModel.tblGrupi" Width="1.5" PointX="0.75" PointY="7" />
         <EntityTypeShape EntityType="BiblotekaModel.tblHistoriatet" Width="1.5" PointX="8" PointY="1" />
         <EntityTypeShape EntityType="BiblotekaModel.tblHistoriatetLlojet" Width="1.5" PointX="5.75" PointY="1.5" />
-        <EntityTypeShape EntityType="BiblotekaModel.tblHuazimi" Width="1.5" PointX="10.5" PointY="6.375" />
-        <EntityTypeShape EntityType="BiblotekaModel.tblKomunat" Width="1.5" PointX="0.75" PointY="6.75" />
-        <EntityTypeShape EntityType="BiblotekaModel.tblKthimi" Width="1.5" PointX="7.5" PointY="6.25" />
-        <EntityTypeShape EntityType="BiblotekaModel.tblLibri" Width="1.5" PointX="5.25" PointY="5" />
+        <EntityTypeShape EntityType="BiblotekaModel.tblHuazimi" Width="1.5" PointX="7.5" PointY="6.25" />
+        <EntityTypeShape EntityType="BiblotekaModel.tblKomunat" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="BiblotekaModel.tblKthimi" Width="1.5" PointX="10.5" PointY="6.25" />
+        <EntityTypeShape EntityType="BiblotekaModel.tblLibri" Width="1.5" PointX="5.25" PointY="5.125" />
         <EntityTypeShape EntityType="BiblotekaModel.tblPerdoruesit" Width="1.5" PointX="3" PointY="5.5" />
         <EntityTypeShape EntityType="BiblotekaModel.tblRafti" Width="1.5" PointX="3" PointY="2.25" />
         <EntityTypeShape EntityType="BiblotekaModel.tblShtepiaBotuese" Width="1.5" PointX="10.75" PointY="0.75" />

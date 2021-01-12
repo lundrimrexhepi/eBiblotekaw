@@ -19,7 +19,6 @@ namespace eBibloteka.Models
         public int? DhomaID { get; set; }
         public int? RaftiID { get; set; }
         public string DonacionPershkrimi { get; set; }
-        public int? PerdoruesiIDLexuesit { get; set; }
         public int Rasti { get; set; }
         public DateTime DataInsertimi { get; set; }
         public int? PerdoruesiID { get; set; }

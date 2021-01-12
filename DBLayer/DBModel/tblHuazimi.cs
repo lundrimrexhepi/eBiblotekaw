@@ -21,6 +21,7 @@ namespace DBLayer.DBModel
         public Nullable<System.DateTime> DataHuazimit { get; set; }
         public Nullable<System.DateTime> DataKthimit { get; set; }
         public string Shenime { get; set; }
+        public Nullable<int> PerdoruesiIDLexuesi { get; set; }
     
         public virtual tblLibri tblLibri { get; set; }
         public virtual tblPerdoruesit tblPerdoruesit { get; set; }
