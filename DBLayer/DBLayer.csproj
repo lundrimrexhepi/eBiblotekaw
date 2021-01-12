@@ -109,6 +109,9 @@
     <Compile Include="DBModel\sp_helpdiagrams_Result.cs">
       <DependentUpon>DBEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="DBModel\sysdiagrams.cs">
+      <DependentUpon>DBEntity.tt</DependentUpon>
+    </Compile>
     <Compile Include="DBModel\tblAutori.cs">
       <DependentUpon>DBEntity.tt</DependentUpon>
     </Compile>
