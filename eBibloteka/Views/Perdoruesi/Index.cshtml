@@ -52,12 +52,12 @@
 
 
                 <div class="col-md-3">
-                    <label for="inputUsername">@ResourceCache.PershkrimiKontrolles("Perdoruesi", "pergjithshem")</label>
+                    <label for="inputUsername">Perdoruesi</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-user" aria-hidden="true"></i></span>
                         </div>
-                        @Html.TextBoxFor(model => model.Username, new { @class = "form-control", @Placeholder = ResourceCache.PershkrimiKontrolles("Perdoruesi", "pergjithshem") })
+                        @Html.TextBoxFor(model => model.Username, new { @class = "form-control", @Placeholder = "Perdoruesi"})
                     </div>
                     @Html.ValidationMessageFor(m => m.Username, "", new { @class = "text-danger" })
                 </div>
@@ -68,8 +68,8 @@
 
 
                 <div class="col-md-3">
-                    <label for="inputEmri">@ResourceCache.PershkrimiKontrolles("lblEmri", "pergjithshem")</label>
-                    @Html.TextBoxFor(model => model.Emri, new { @class = "form-control", @Placeholder = ResourceCache.PershkrimiKontrolles("lblEmri", "pergjithshem") })
+                    <label for="inputEmri">Emri</label>
+                    @Html.TextBoxFor(model => model.Emri, new { @class = "form-control", @Placeholder = "Emri"})
                     @Html.ValidationMessageFor(m => m.Emri, "", new { @class = "text-danger" })
                 </div>
 
@@ -79,8 +79,8 @@
 
 
                 <div class="col-md-3">
-                    <label for="inputMbiemri">@ResourceCache.PershkrimiKontrolles("lblMbiemri", "pergjithshem")</label>
-                    @Html.TextBoxFor(model => model.Mbiemri, new { @class = "form-control", @Placeholder = ResourceCache.PershkrimiKontrolles("lblMbiemri", "pergjithshem") })
+                    <label for="inputMbiemri">Mbiemri</label>
+                    @Html.TextBoxFor(model => model.Mbiemri, new { @class = "form-control", @Placeholder = "Mbiemri" })
                     @Html.ValidationMessageFor(m => m.Mbiemri, "", new { @class = "text-danger" })
                 </div>
 
@@ -109,12 +109,12 @@
 
                 <div class="col-md-3">
 
-                    <label for="inputNrPersonal">@ResourceCache.PershkrimiKontrolles("NumriPersonal", "pergjithshem")</label>
+                    <label for="inputNrPersonal">Numri personal</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-plus" aria-hidden="true"></i></span>
                         </div>
-                        @Html.TextBoxFor(model => model.NumriPersonal, new { @class = "form-control", @Placeholder = ResourceCache.PershkrimiKontrolles("NumriPersonal", "pergjithshem") })
+                        @Html.TextBoxFor(model => model.NumriPersonal, new { @class = "form-control", @Placeholder = "Numri personal" })
                     </div>
                     @Html.ValidationMessageFor(m => m.NumriPersonal, "", new { @class = "text-danger" })
                 </div>
@@ -123,24 +123,24 @@
 
                 <div class="col-md-6">
 
-                    <label for="inputPassword">@ResourceCache.PershkrimiKontrolles("logFjalekalimi", "pergjithshem")</label>
+                    <label for="inputPassword">Fjalekalimi</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-key" aria-hidden="true"></i></span>
                         </div>
-                        @Html.TextBoxFor(model => model.Fjalekalimi, new { @class = "form-control", @Placeholder = ResourceCache.PershkrimiKontrolles("logFjalekalimi", "pergjithshem"), @type = "password" })
+                        @Html.TextBoxFor(model => model.Fjalekalimi, new { @class = "form-control", @Placeholder ="Fjalekalimi", @type = "password" })
                     </div>
                     @Html.ValidationMessageFor(m => m.Fjalekalimi, "", new { @class = "text-danger" })
                 </div>
 
                 <div class="col-md-3">
 
-                    <label for="inputNrPersonal">@ResourceCache.PershkrimiKontrolles("lblTelefoni", "pergjithshem")</label>
+                    <label for="inputNrPersonal">Telefoni</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-phone" aria-hidden="true"></i></span>
                         </div>
-                        @Html.TextBoxFor(model => model.Telefoni, new { @class = "form-control", @Placeholder = ResourceCache.PershkrimiKontrolles("lblTelefoni", "pergjithshem") })
+                        @Html.TextBoxFor(model => model.Telefoni, new { @class = "form-control", @Placeholder = "Telefoni" })
 
                     </div>
                     @Html.ValidationMessageFor(m => m.Telefoni, "", new { @class = "text-danger" })
@@ -152,8 +152,8 @@
             <div class="row form-group">
 
                 <div class="col-md-9">
-                    <label for="inputPassword">@ResourceCache.PershkrimiKontrolles("lblGrupet", "Grupi")</label>
-                    @Html.ListBoxFor(model => model.grupiID, ViewBag.Grupet as SelectList, new { @class = "form-control", @style = "width:100%", @Placeholder = ResourceCache.PershkrimiKontrolles("lblGrupet", "Grupi"), multiple = "multiple" }) @*per test Viewbag.Users to Viewbag.Username*@
+                    <label for="inputPassword">Grupi</label>
+                    @Html.ListBoxFor(model => model.grupiID, ViewBag.Grupet as SelectList, new { @class = "form-control", @style = "width:100%", @Placeholder = "Grupi", multiple = "multiple" }) @*per test Viewbag.Users to Viewbag.Username*@
                     @Html.ValidationMessageFor(m => m.grupiID, "", new { @class = "text-danger" })
 
                 </div>
@@ -166,8 +166,8 @@
             <div class="row form-group">
 
                 <div class="col-md-9">
-                    <label for="inputPassword">@ResourceCache.PershkrimiKontrolles("mnuKomunat", "pergjithshem")</label>
-                    @Html.ListBoxFor(model => model.komunaID, ViewBag.Komunat as SelectList, new { @class = "form-control", @style = "width:100%", @Placeholder = @ResourceCache.PershkrimiKontrolles("Zgjedhe", "pergjithshem"), multiple = "multiple" }) @*per test Viewbag.Users to Viewbag.Username*@
+                    <label for="inputPassword">Komuna</label>
+                    @Html.ListBoxFor(model => model.komunaID, ViewBag.Komunat as SelectList, new { @class = "form-control", @style = "width:100%", @Placeholder = "Komuna", multiple = "multiple" }) @*per test Viewbag.Users to Viewbag.Username*@
                     @Html.ValidationMessageFor(m => m.komunaID, "", new { @class = "text-danger" })
 
                 </div>
@@ -304,7 +304,7 @@
 
             $("#grupiID").select2({
                 multiple: true,
-                placeholder: "@ResourceCache.PershkrimiKontrolles("lblGrupet", "pergjithshem")",
+                placeholder: "Grupet",
                 allowClear: true,
                 theme:bootstrap
             });
@@ -412,22 +412,22 @@
                 ],
 
                 language: {
-                    "sEmptyTable": '@ResourceCache.PershkrimiKontrolles("lblNodata", "datatable")',
-                    "sInfo": '@ResourceCache.PershkrimiKontrolles("lblShowing", "datatable")' + " _START_ " + '@ResourceCache.PershkrimiKontrolles("lblDeri", "datatable")' + " _END_ " + '@ResourceCache.PershkrimiKontrolles("lblPrej", "datatable")' + " _TOTAL_ " + '@ResourceCache.PershkrimiKontrolles("lblRreshtave", "datatable")' + ".",
+                    "sEmptyTable": 'Nuk ka te dhena',
+                    "sInfo": 'Shfaq' + " _START_ " + 'Deri' + " _END_ " + 'Prej' + " _TOTAL_ " + 'Rreshta' + ".",
                     "sInfoEmpty": "",
                     "sInfoFiltered": "",
                     "sInfoPostFix": "",
                     "sInfoThousands": ",",
-                    "sLengthMenu": '@ResourceCache.PershkrimiKontrolles("lblShiko", "datatable")' + " _MENU_ " + '@ResourceCache.PershkrimiKontrolles("lblRreshta", "datatable")',
+                    "sLengthMenu": 'Shiko' + " _MENU_ " + 'Rreshta',
                     "sLoadingRecords": "",
-                    "sProcessing": '@ResourceCache.PershkrimiKontrolles("lblProcessing", "datatable")',
-                    "sSearch": '@ResourceCache.PershkrimiKontrolles("lblKerkoni", "datatable")',
+                    "sProcessing": 'Duke procesuar',
+                    "sSearch": 'Kerkoni',
                     "sZeroRecords": "",
                     "oPaginate": {
-                        "sFirst": '@ResourceCache.PershkrimiKontrolles("lblPari", "datatable")',
-                        "sLast": '@ResourceCache.PershkrimiKontrolles("lblFundit", "datatable")',
-                        "sNext": '@ResourceCache.PershkrimiKontrolles("lblRradhes", "datatable")',
-                        "sPrevious": '@ResourceCache.PershkrimiKontrolles("lblParaprak", "datatable")'
+                        "sFirst": 'Pari',
+                        "sLast": 'Fundit',
+                        "sNext": 'i Rradhes',
+                        "sPrevious": 'Paraprak'
                     },
                     "oAria": {
                         "sSortAscending": ": ",
@@ -464,7 +464,7 @@
                         $('#myGrid').DataTable().ajax.reload();
                         Swal.fire({
                             icon: 'success',
-                            title: '@ResourceCache.PershkrimiKontrolles("Sukses", "pergjithshem")',
+                            title: 'Sukses',
                             text: 'Eshte fshire perdoruesi'
 
                         })
@@ -477,8 +477,8 @@
 
                         Swal.fire({
                             icon: 'error',
-                            title: '@ResourceCache.PershkrimiKontrolles("Gabim", "pergjithshem")',
-                            text: '@Html.Raw(ResourceCache.PershkrimiKontrolles("gabim1", "pergjithshem"))'
+                            title: 'Gabim',
+                            text: 'Ka ndodhur nje gabim'
 
                         })
                         $('body').prelodr('out');
