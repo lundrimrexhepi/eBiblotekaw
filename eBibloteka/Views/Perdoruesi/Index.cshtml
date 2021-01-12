@@ -384,7 +384,7 @@
                 },
                 "columns": [
 
-                { "data": "Username" ,"autowidth": true },
+                    { "data": "Perdoruesi" ,"autowidth": true },
                 { "data": "Emri","autowidth": true },
                 { "data": "Mbiemri", "autowidth": true },
                 { "data": "NumriPersonal", "autowidth": true },
@@ -394,7 +394,7 @@
                         "data": null,
                         "render": function (data, type, full, meta) {
 
-                            return "<a href='@Url.Action("Index","Perdoruesi")?id=" + full.perdoruesiID +"'><i class='fas fa-edit'></i></a>"
+                            return "<a href='@Url.Action("Index","Perdoruesi")?id=" + full.PerdoruesiID +"'><i class='fas fa-edit'></i></a>"
 
                         },
                         "className":"dt-body-center"
@@ -404,7 +404,7 @@
                         "render": function (data, type, full, meta) {
 
 
-                            return "<a href='#' id='btn' onclick='FshijPerdoruesin(" + full.perdoruesiID + ");'><i class='fa fa-trash'></i></a>"
+                            return "<a href='#' id='btn' onclick='FshijPerdoruesin(" + full.PerdoruesiID + ");'><i class='fa fa-trash'></i></a>"
 
                         },
                         "className":"dt-body-center"

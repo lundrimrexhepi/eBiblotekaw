@@ -25,6 +25,19 @@ namespace eBibloteka
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/select2/js").Include(
+                "~/adminty/files/bower_components/select2/js/select2.full.min.js"));
+
+            bundles.Add(new ScriptBundle("~/select2/js").Include(
+                    "~/Scripts/select2.min.js"));
+
+            bundles.Add(new StyleBundle("~/select2/css").Include(
+                    "~/Content/Select2css/select2.min.css",
+                    "~/Content/Select2css/select2-bootstrap.min.css"));
+
+            bundles.Add(new StyleBundle("~/bundles/select2/css").Include(
+                   "~/adminty/files/bower_components/select2/css/select2.min.css"));
         }
     }
 }

@@ -49,7 +49,7 @@ namespace eBibloteka.Controllers
 
 
             ViewBag.Grupet = new SelectList(db.tblGrupi.ToList(), "GrupiID", "Pershkrimi");
-            ViewBag.Komunat = new SelectList(db.tblKomunat.ToList(), "KomunaID", "Pershkrimi");
+            ViewBag.Komunat = new SelectList(db.tblKomunat.ToList(), "KomunaID", "Pershkrimi_SQ");
             return View(modeli);
         }
         public ActionResult CreateUser(PerdoruesiModel modeli)
@@ -106,7 +106,11 @@ namespace eBibloteka.Controllers
                             perdoruesi.Email = modeli.Email;
                             perdoruesi.NumriPersonal = modeli.NumriPersonal;
                             perdoruesi.Telefoni = modeli.Telefoni;
+                            perdoruesi.GrupiID =int.Parse(modeli.grupiID[0].ToString());
+                            perdoruesi.KomunaID = int.Parse(modeli.komunaID[0].ToString());
                             perdoruesi.Fjalkalimi = Krijo_DB_Fjalekalimin(_bytSalt, modeli.Fjalekalimi);
+                            perdoruesi.DateLindja = DateTime.Now;
+                            perdoruesi.DataInsertimit = DateTime.Now;
                             obj._UserRepository.Insert(perdoruesi);
                             obj.Save();
                             

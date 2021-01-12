@@ -169,7 +169,6 @@
     <Compile Include="Helpers\CultureHelper.cs" />
     <Compile Include="Helpers\Enums.cs" />
     <Compile Include="Helpers\GjenerimiRaporteve.cs" />
-    <Compile Include="Helpers\ReportGenerator.cs" />
     <Compile Include="Models\Huazimi.cs" />
     <Compile Include="Models\Librat.cs" />
     <Compile Include="Models\PerdoruesiListViewModel.cs" />
