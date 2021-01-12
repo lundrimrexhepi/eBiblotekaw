@@ -1,0 +1,85 @@
+﻿<section class="content-header card-header">
+    <h1>
+        @ViewBag.Title
+    </h1>
+</section>
+<br />
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Error!</strong> @TempData["Error"]
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+<div class="card card-light">
+    <div class="card-header">
+        <h3 class="card-title"><i class="fa fa-cogs" aria-hidden="true"></i> &nbsp;&nbsp;Zgjedhni opsionet e kërkimit për të gjeneruar raportin</h3>
+    </div>
+    <div class="card-body">
+        <div class="row form-group">
+            <div class="col-md-4" id="divLlojiRaportit">
+                <label for="cmbLloji">Lloji Raportit</label>
+                @Html.DropDownList("LlojiRaportitID", new List<SelectListItem>{
+    new SelectListItem{ Text="Libri me i kerkuara", Value = "1" },
+    new SelectListItem{ Text="Raporti 2", Value = "2" },
+    new SelectListItem{ Text="Raporti 3", Value = "3" },
+ } , "Zgjedhe", new { @class = "form-control", @required = "required" })
+            </div>
+            <div class="col-md-4">
+                <label for="inputUsername">Data Prej</label>  <br />
+                @Html.TextBox("Dataprej", null, new { @class = "date-picker form-control" })
+            </div>
+            <div class="col-md-4">
+                <label for="inputUsername">Data Deri</label><br />
+                @Html.TextBox("Dataderi", null, new { @class = "date-picker form-control" })
+
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-md-2">
+                <br />
+                <input type="submit" class="btn btn-lightblue" style="width: 100px;" value="Raporti" @*onclick="gjeneroRaportin()"*@ />
+                <input type="reset" class="btn btn-default" style="width: 100px;" value="Anulo" onclick="resetCombo()" />
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@Scripts.Render("~/bundles/jquery")
+
+<script src="~/Scripts/select2.min.js"></script>
+<script>
+    $(function () {
+        // This will make every element with the class "date-picker" into a DatePicker element
+        $('.date-picker').datepicker();
+    })
+    $(document).ready(function () {
+        $("#komunaID").select2({
+            multiple: false,
+            placeholder: 'Zgjedhe',
+            allowClear: true,
+            theme: "bootstrap"
+        });
+    });
+    function resetCombo() {
+        $("#LlojiRaportitID").val(null).trigger('change');
+    }
+
+     function ShkarkoRaportin()
+    {
+
+        var LlojiRaportitID = $("#LlojiRaportitID").val();
+        var Dataprej = $("#Dataprej").val();
+        var Dataderi = $("#Dataderi").val();
+
+        var url = '@Url.Action("GenerateReport", "Raportet", new { LlojiRaportitID = "REPLACEME", Dataprej = "REPLACEME1", Dataderi= "REPLACEME2" })';
+         var url1 = url.replace("REPLACEME", LlojiRaportitID);
+         var url2 = url1.replace("REPLACEME1", Dataprej);
+        var URLFIN = url1.replace("amp;", "");
+       // window.location.href = URLFIN.replace("REPLACEME1", Viti);
+         window.open(URLFIN.replace("REPLACEME2", Dataderi), '_blank');
+    }
+</script>

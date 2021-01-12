@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Web;
 
-namespace KQZ_Votuesit.Helpers
+namespace eBibloteka.Helpers
 {
     public class CultureHelper
     {
