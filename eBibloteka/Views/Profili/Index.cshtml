@@ -1,0 +1,218 @@
+﻿@using DBLayer.DBModel
+@model  eBibloteka.Controllers.ProfileModel
+@{
+    ViewBag.Title = "Profili i përdoruesit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    string user = Session["perdoruesiID"].ToString() + ".png";
+    IEnumerable<tblPerdoruesit> userData = ViewData["userData"] as IEnumerable<tblPerdoruesit>;
+
+
+}
+
+@if (TempData["Alert"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Sukses!</strong> @TempData["Alert"]
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Gabim!</strong> @TempData["Error"]
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+<section class="content-header card-header">
+    <h1>
+        @ViewBag.Title
+
+    </h1>
+
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+
+                <!-- Profile Image -->
+                <div class="card card-primary card-outline">
+                    <div class="card-body box-profile">
+                        <div class="text-center">
+                            <img class="profile-user-img img-fluid img-circle" src="~/Img/ProfilePics/@user" onerror="this.onerror=null; this.src='@Url.Content("~/Content/Template/dist/img/user2-160x160.jpg")'" alt="User profile picture">
+                        </div>
+
+                        <h3 class="profile-username text-center">@Session["Emri"].ToString().ToUpper()</h3>
+
+                        <p class="text-muted text-center"></p>
+
+                        @*<ul class="list-group list-group-unbordered mb-3">
+                                <li class="list-group-item">
+                                    <b>Followers</b> <a class="float-right">1,322</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <b>Following</b> <a class="float-right">543</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <b>Friends</b> <a class="float-right">13,287</a>
+                                </li>
+                            </ul>*@
+
+                        @*<a href="#" class="btn btn-primary btn-block"><b>Ndrysho foton</b></a>*@
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+                <!-- About Me Box -->
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Të dhënat</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    @foreach (tblPerdoruesit item in userData)
+                    {
+                        <div class="card-body">
+                            <strong><i class="fas fa-user"></i>Përdoruesi</strong>
+
+                            <p class="text-muted">
+                                @item.Perdoruesi
+                            </p>
+
+                            <hr>
+
+                            <strong><i class="ion ion-plus-circled"></i> Emri mbiemri</strong>
+
+                            <p class="text-muted">@item.Emri @item.Mbiemri</p>
+
+                            <hr>
+
+                            <strong><i class="ion ion-plus-circled"></i> Numri personal</strong>
+
+                            <p class="text-muted">
+                                @item.NumriPersonal
+                            </p>
+
+                            <hr>
+
+                            <strong><i class="ion ion-android-mail"></i> E-mail</strong>
+
+                            <p class="text-muted">
+                                @item.Email
+                            </p>
+
+                            <hr>
+
+
+                            @*<strong><i class="far fa-file-alt mr-1"></i> Notes</strong>
+
+                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>*@
+                        </div>
+
+                    }
+                    <!-- /.card-body -->
+                </div>
+
+
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-header p-2">
+                        <ul class="nav nav-pills">
+                            <li class="nav-item"><a class="nav-link active" href="#settings" data-toggle="tab">Modifiko profilin</a></li>
+                        </ul>
+                    </div><!-- /.card-header -->
+                    <div class="card-body">
+                        <div class="tab-content">
+
+                            @foreach (var item in userData)
+                            {
+
+
+                                <div class="tab-pane active" id="settings">
+                                    @using (Html.BeginForm("UpdateProfile", "Profili", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                    {
+                                        <div class="form-group row">
+                                            <label for="inputName" class="col-sm-2 col-form-label">Shenoni numrin e telefonit : </label>
+                                            <div class="col-sm-10">
+                                                @Html.TextBoxFor(model => model.Telefoni, new { @class = "form-control", @Placeholder = "telefoni", @Value = item.Telefoni, @disabled = true })
+                                                @Html.ValidationMessageFor(m => m.Telefoni, "", new { @class = "text-danger" })
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputEmail" class="col-sm-2 col-form-label">E-mail:</label>
+                                            <div class="col-sm-10">
+                                                @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @Placeholder = "E-mail", @Value = item.Email, @disabled = true })
+                                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputName2" class="col-sm-2 col-form-label">Fjalekalimi:</label>
+                                            <div class="col-sm-10">
+                                                @Html.TextBoxFor(model => model.Fjalekalimi, new { @class = "form-control", @Placeholder = "Fjalekalimi", @type = "password" })
+                                                @Html.ValidationMessageFor(m => m.Fjalekalimi, "", new { @class = "text-danger" })
+
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="inputName2" class="col-sm-2 col-form-label">Foto profilit</label>
+                                            <div class="col-sm-10">
+                                                @Html.TextBoxFor(model => model.profilePic, null, new { @class = "input-file", @type = "file", @onchange = "loadFile(event)", @accept = "image/x-png,image/gif,image/jpeg" })
+                                                <img id="output" width="160" height="160" />
+
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <div class="offset-sm-2 col-sm-10">
+                                                <button type="submit" class="btn btn-lightblue">Ruaj</button>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            }
+                            <!-- /.tab-pane -->
+                        </div>
+                        <!-- /.tab-content -->
+                    </div><!-- /.card-body -->
+                </div>
+                <!-- /.nav-tabs-custom -->
+            </div>
+            <!-- /.col -->
+        </div>
+
+
+    </div>
+
+</section>
+<br />
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryval")
+
+<script>
+
+    var loadFile = function (event) {
+        var output = document.getElementById('output');
+        output.src = URL.createObjectURL(event.target.files[0]);
+        output.onload = function () {
+            URL.revokeObjectURL(output.src) // free memory
+        }
+    };
+
+</script>
+
+
+

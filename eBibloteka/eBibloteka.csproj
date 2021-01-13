@@ -162,6 +162,7 @@
     <Compile Include="Controllers\ListaHuazimitController.cs" />
     <Compile Include="Controllers\ListaLibraveController.cs" />
     <Compile Include="Controllers\PerdoruesiController.cs" />
+    <Compile Include="Controllers\ProfiliController.cs" />
     <Compile Include="Controllers\RaportetController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
