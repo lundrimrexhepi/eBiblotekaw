@@ -37,8 +37,8 @@
                                             @Html.DropDownListFor(x => x.PerdoruesiIDLexuesi, (SelectList)ViewBag.Lexuesi, "", new { @class = "form-control" })
                                         </div>
                                         <div class="form-group col-md-2">
-                                            <label for="inputEmail3" class="col-form-label">Sasia<text class="text-danger" style="font-size:1.3em;"> *</text></label>
-                                            @Html.TextBoxFor(x => x.Sasia, new { @class = "form-control" })
+                                            <label for="inputEmail3" class="col-form-label">Sasia<text class="text-danger" style="font-size:1.3em;"> </text></label>
+                                            @Html.TextBoxFor(x => x.Sasia, new { @class = "form-control", @readonly = "true" })
                                         </div>
                                         <div class="form-group col-md-2">
                                             <label for="inputEmail3" class="col-form-label">Shenime<text class="text-danger" style="font-size:1.3em;"> </text></label>

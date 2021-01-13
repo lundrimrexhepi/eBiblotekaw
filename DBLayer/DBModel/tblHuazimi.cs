@@ -14,6 +14,12 @@ namespace DBLayer.DBModel
     
     public partial class tblHuazimi
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public tblHuazimi()
+        {
+            this.tblKthimi = new HashSet<tblKthimi>();
+        }
+    
         public int HuazimiID { get; set; }
         public Nullable<int> PerdoruesiID { get; set; }
         public Nullable<int> LibriID { get; set; }
@@ -25,5 +31,7 @@ namespace DBLayer.DBModel
     
         public virtual tblLibri tblLibri { get; set; }
         public virtual tblPerdoruesit tblPerdoruesit { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblKthimi> tblKthimi { get; set; }
     }
 }

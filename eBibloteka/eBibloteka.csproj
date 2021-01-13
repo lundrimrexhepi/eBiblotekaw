@@ -172,6 +172,7 @@
     <Compile Include="Helpers\Enums.cs" />
     <Compile Include="Helpers\GjenerimiRaporteve.cs" />
     <Compile Include="Models\Huazimi.cs" />
+    <Compile Include="Models\Kthimi.cs" />
     <Compile Include="Models\Librat.cs" />
     <Compile Include="Models\PerdoruesiListViewModel.cs" />
     <Compile Include="Models\QasjaModel.cs" />
@@ -10885,7 +10886,7 @@
     <Content Include="Views\ListaLibrave\Index.cshtml" />
     <Content Include="Views\Huazimi\Index.cshtml" />
     <Content Include="Views\ListaHuazimit\Index.cshtml" />
-    <Content Include="Views\Profili\Index.cshtml" />
+    <Content Include="Views\Kthimi\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -10896,7 +10897,6 @@
     <Folder Include="Content\Template\bower_components\select2\docs\_layouts\" />
     <Folder Include="Content\Template\bower_components\select2\docs\_sass\" />
     <Folder Include="Views\Base\" />
-    <Folder Include="Views\Kthimi\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

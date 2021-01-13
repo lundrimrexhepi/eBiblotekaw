@@ -19,6 +19,7 @@ namespace eBibloteka.Controllers
             MbushKombot();
             Librat modeli = new Librat();
             Session["Rasti"] = 0;
+            Session["PerdoruesiID"] = 2;
             if (l==0)
             {
                 modeli.Rasti = 1;
@@ -41,8 +42,8 @@ namespace eBibloteka.Controllers
                 modeli.RaftiID = TedhenatLibri.RaftiID;
                 modeli.DonacionPershkrimi = TedhenatLibri.DonacionPershkrimi;
                 modeli.DataInsertimi =DateTime.Parse(TedhenatLibri.DataInsertimi.ToString());
-                modeli.PerdoruesiID = TedhenatLibri.PerdoruesiID;// model.PerdoruesiID;
-               // modeli.PerdoruesiIDLexuesit = TedhenatLibri.PerdoruesiIDLexuesi;
+                modeli.PerdoruesiID = int.Parse(Session["PerdoruesiID"].ToString());
+                // modeli.PerdoruesiIDLexuesit = TedhenatLibri.PerdoruesiIDLexuesi;
                 Session["Rasti"] = 2;
             }
             
@@ -101,8 +102,8 @@ namespace eBibloteka.Controllers
                         objLibri.RaftiID = model.RaftiID;
                         objLibri.DonacionPershkrimi = model.DonacionPershkrimi;
                         objLibri.DataInsertimi = DateTime.Now;
-                        objLibri.PerdoruesiID = 2;// model.PerdoruesiID;
-                       // objLibri.PerdoruesiIDLexuesi = (int)model.PerdoruesiIDLexuesit;
+                        objLibri.PerdoruesiID = int.Parse(Session["PerdoruesiID"].ToString());
+                        // objLibri.PerdoruesiIDLexuesi = (int)model.PerdoruesiIDLexuesit;
 
 
                         obj._BookRepository.Insert(objLibri); 
@@ -126,8 +127,7 @@ namespace eBibloteka.Controllers
                         objLibri.RaftiID = model.RaftiID;
                         objLibri.DonacionPershkrimi = model.DonacionPershkrimi;
                         objLibri.DataInsertimi = DateTime.Now;
-                        objLibri.PerdoruesiID =2;// model.PerdoruesiID;
-                    //    objLibri.PerdoruesiIDLexuesi = (int)model.PerdoruesiIDLexuesit;
+                        objLibri.PerdoruesiID = int.Parse(Session["PerdoruesiID"].ToString());
                         obj._BookRepository.Update(objLibri);
                         obj.Save();
                         obj.Dispose();

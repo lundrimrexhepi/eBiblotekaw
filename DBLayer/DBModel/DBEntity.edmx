@@ -101,6 +101,7 @@
           <Property Name="Domtuar" Type="bit" />
           <Property Name="Pages" Type="money" />
           <Property Name="SasiaDomtuar" Type="int" />
+          <Property Name="HuazimiID" Type="int" />
         </EntityType>
         <EntityType Name="tblLibri">
           <Key>
@@ -188,6 +189,18 @@
             </Principal>
             <Dependent Role="tblHuazimi">
               <PropertyRef Name="PerdoruesiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblKthimi_tblHuazimi">
+          <End Role="tblHuazimi" Type="Self.tblHuazimi" Multiplicity="0..1" />
+          <End Role="tblKthimi" Type="Self.tblKthimi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblHuazimi">
+              <PropertyRef Name="HuazimiID" />
+            </Principal>
+            <Dependent Role="tblKthimi">
+              <PropertyRef Name="HuazimiID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -357,6 +370,10 @@
             <End Role="tblPerdoruesit" EntitySet="tblPerdoruesit" />
             <End Role="tblHuazimi" EntitySet="tblHuazimi" />
           </AssociationSet>
+          <AssociationSet Name="FK_tblKthimi_tblHuazimi" Association="Self.FK_tblKthimi_tblHuazimi">
+            <End Role="tblHuazimi" EntitySet="tblHuazimi" />
+            <End Role="tblKthimi" EntitySet="tblKthimi" />
+          </AssociationSet>
           <AssociationSet Name="FK_tblKthimi_tblLibri" Association="Self.FK_tblKthimi_tblLibri">
             <End Role="tblLibri" EntitySet="tblLibri" />
             <End Role="tblKthimi" EntitySet="tblKthimi" />
@@ -470,6 +487,10 @@
           <AssociationSet Name="FK_tblHuazimi_tblPerdoruesit" Association="BiblotekaModel.FK_tblHuazimi_tblPerdoruesit">
             <End Role="tblPerdoruesit" EntitySet="tblPerdoruesit" />
             <End Role="tblHuazimi" EntitySet="tblHuazimi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblKthimi_tblHuazimi" Association="BiblotekaModel.FK_tblKthimi_tblHuazimi">
+            <End Role="tblHuazimi" EntitySet="tblHuazimi" />
+            <End Role="tblKthimi" EntitySet="tblKthimi" />
           </AssociationSet>
           <AssociationSet Name="FK_tblPerdoruesit_tblKomunat" Association="BiblotekaModel.FK_tblPerdoruesit_tblKomunat">
             <End Role="tblKomunat" EntitySet="tblKomunat" />
@@ -585,6 +606,7 @@
           <Property Name="PerdoruesiIDLexuesi" Type="Int32" />
           <NavigationProperty Name="tblLibri" Relationship="BiblotekaModel.FK_tblHuazimi_tblLibri" FromRole="tblHuazimi" ToRole="tblLibri" />
           <NavigationProperty Name="tblPerdoruesit" Relationship="BiblotekaModel.FK_tblHuazimi_tblPerdoruesit" FromRole="tblHuazimi" ToRole="tblPerdoruesit" />
+          <NavigationProperty Name="tblKthimi" Relationship="BiblotekaModel.FK_tblKthimi_tblHuazimi" FromRole="tblHuazimi" ToRole="tblKthimi" />
         </EntityType>
         <EntityType Name="tblKomunat">
           <Key>
@@ -608,6 +630,8 @@
           <Property Name="Domtuar" Type="Boolean" />
           <Property Name="Pages" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="SasiaDomtuar" Type="Int32" />
+          <Property Name="HuazimiID" Type="Int32" />
+          <NavigationProperty Name="tblHuazimi" Relationship="BiblotekaModel.FK_tblKthimi_tblHuazimi" FromRole="tblKthimi" ToRole="tblHuazimi" />
           <NavigationProperty Name="tblLibri" Relationship="BiblotekaModel.FK_tblKthimi_tblLibri" FromRole="tblKthimi" ToRole="tblLibri" />
           <NavigationProperty Name="tblPerdoruesit" Relationship="BiblotekaModel.FK_tblKthimi_tblPerdoruesit" FromRole="tblKthimi" ToRole="tblPerdoruesit" />
         </EntityType>
@@ -758,6 +782,18 @@
             </Principal>
             <Dependent Role="tblHuazimi">
               <PropertyRef Name="PerdoruesiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblKthimi_tblHuazimi">
+          <End Type="BiblotekaModel.tblHuazimi" Role="tblHuazimi" Multiplicity="0..1" />
+          <End Type="BiblotekaModel.tblKthimi" Role="tblKthimi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblHuazimi">
+              <PropertyRef Name="HuazimiID" />
+            </Principal>
+            <Dependent Role="tblKthimi">
+              <PropertyRef Name="HuazimiID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -947,6 +983,7 @@
           <EntitySetMapping Name="tblKthimi">
             <EntityTypeMapping TypeName="BiblotekaModel.tblKthimi">
               <MappingFragment StoreEntitySet="tblKthimi">
+                <ScalarProperty Name="HuazimiID" ColumnName="HuazimiID" />
                 <ScalarProperty Name="SasiaDomtuar" ColumnName="SasiaDomtuar" />
                 <ScalarProperty Name="Pages" ColumnName="Pages" />
                 <ScalarProperty Name="Domtuar" ColumnName="Domtuar" />
