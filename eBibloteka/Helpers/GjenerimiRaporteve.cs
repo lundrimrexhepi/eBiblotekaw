@@ -43,9 +43,7 @@ namespace eBibloteka.Helpers
             {
                 case LlojiRaportit.raporti:
 
-                    reportViewer.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", objDataTable[0]));
-                    parametrat.Add(new ReportParameter("Komuna", Parametrat[0]));
-                    parametrat.Add(new ReportParameter("count", Parametrat[1]));
+                    reportViewer.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", objDataTable[0]));                    
                     reportViewer.LocalReport.SetParameters(parametrat);
                     break;
                 case LlojiRaportit.raporti1:

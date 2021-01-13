@@ -31,7 +31,7 @@ namespace eBibloteka.Controllers
                 listaMeDataSeta.Add(table1);
                 var GjenerimiRaporteve = new GjenerimiRaporteve();
            ;
-                var reportPath = Server.MapPath("~/Reports/") + "rptListaVotuesveJashtKS.rdlc";
+                var reportPath = Server.MapPath("~/Reports/") + "rptLibri.rdlc";
                 var bytes = GjenerimiRaporteve.GjeneroRaportin(GjenerimiRaporteve.LlojiRaportit.raporti, reportPath, listaMeDataSeta);
                
                 return File(bytes, "application/pdf");

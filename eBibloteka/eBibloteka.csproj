@@ -10896,6 +10896,7 @@
     <Folder Include="Content\Template\bower_components\select2\docs\_includes\" />
     <Folder Include="Content\Template\bower_components\select2\docs\_layouts\" />
     <Folder Include="Content\Template\bower_components\select2\docs\_sass\" />
+    <Folder Include="Datasets\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
@@ -10927,6 +10928,9 @@
       <Project>{43510ECC-46D3-46D0-8742-C784F7CCF25A}</Project>
       <Name>DBLayer</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Reports\rptLibri.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
