@@ -25,6 +25,7 @@ namespace eBibloteka.Controllers
                 Session["Rasti"] = 1;
                 modeli.DataHuazimit = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-dd"));
                 modeli.DataKthimit = DateTime.Today;
+                modeli.Sasia = 1;
             }
             else
             {
@@ -59,6 +60,15 @@ namespace eBibloteka.Controllers
                             obj._HuazimiRepository.Insert(objHuazimi);
                             obj.Save();
                             obj.Dispose();
+
+                            tblLibri objLibri = new tblLibri();
+                            int Stoku = int.Parse(validimiStokut.Sasia.ToString()) - int.Parse(model.Sasia.ToString());
+                            objLibri.Sasia = int.Parse(Stoku.ToString());
+                            
+                            obj._BookRepository.Update(objLibri);
+                            obj.Save();
+                            obj.Dispose();
+
                         }
                         else
                         {

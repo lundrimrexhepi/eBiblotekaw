@@ -5,19 +5,19 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="d14e445bf5654e0ca3d5076ff87707e6" Name="Diagram1">
-        <EntityTypeShape EntityType="BiblotekaModel.tblAutori" Width="1.5" PointX="3" PointY="10.75" />
-        <EntityTypeShape EntityType="BiblotekaModel.tblDhoma" Width="1.5" PointX="3" PointY="15.625" />
-        <EntityTypeShape EntityType="BiblotekaModel.tblGjuhaLibrit" Width="1.5" PointX="3" PointY="13.375" />
-        <EntityTypeShape EntityType="BiblotekaModel.tblGrupi" Width="1.5" PointX="0.75" PointY="7" />
-        <EntityTypeShape EntityType="BiblotekaModel.tblHistoriatet" Width="1.5" PointX="8" PointY="1" />
-        <EntityTypeShape EntityType="BiblotekaModel.tblHistoriatetLlojet" Width="1.5" PointX="5.75" PointY="1.5" />
-        <EntityTypeShape EntityType="BiblotekaModel.tblHuazimi" Width="1.5" PointX="7.5" PointY="6.25" />
-        <EntityTypeShape EntityType="BiblotekaModel.tblKomunat" Width="1.5" PointX="0.75" PointY="3.75" />
-        <EntityTypeShape EntityType="BiblotekaModel.tblKthimi" Width="1.5" PointX="10.5" PointY="6.25" />
-        <EntityTypeShape EntityType="BiblotekaModel.tblLibri" Width="1.5" PointX="5.25" PointY="5.125" />
-        <EntityTypeShape EntityType="BiblotekaModel.tblPerdoruesit" Width="1.5" PointX="3" PointY="5.5" />
-        <EntityTypeShape EntityType="BiblotekaModel.tblRafti" Width="1.5" PointX="3" PointY="2.25" />
-        <EntityTypeShape EntityType="BiblotekaModel.tblShtepiaBotuese" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BiblotekaModel.tblAutori" Width="1.5" PointX="3" PointY="12.5" />
+        <EntityTypeShape EntityType="BiblotekaModel.tblDhoma" Width="1.5" PointX="3" PointY="0.75" />
+        <EntityTypeShape EntityType="BiblotekaModel.tblGjuhaLibrit" Width="1.5" PointX="3" PointY="10.125" />
+        <EntityTypeShape EntityType="BiblotekaModel.tblGrupi" Width="1.5" PointX="0.75" PointY="2.5" />
+        <EntityTypeShape EntityType="BiblotekaModel.tblHistoriatet" Width="1.5" PointX="10" PointY="9.25" />
+        <EntityTypeShape EntityType="BiblotekaModel.tblHistoriatetLlojet" Width="1.5" PointX="7.75" PointY="9.75" />
+        <EntityTypeShape EntityType="BiblotekaModel.tblHuazimi" Width="1.5" PointX="7.5" PointY="4.75" />
+        <EntityTypeShape EntityType="BiblotekaModel.tblKomunat" Width="1.5" PointX="0.75" PointY="5.25" />
+        <EntityTypeShape EntityType="BiblotekaModel.tblKthimi" Width="1.5" PointX="9.75" PointY="4.625" />
+        <EntityTypeShape EntityType="BiblotekaModel.tblLibri" Width="1.5" PointX="5.25" PointY="3.625" />
+        <EntityTypeShape EntityType="BiblotekaModel.tblPerdoruesit" Width="1.5" PointX="3" PointY="4" />
+        <EntityTypeShape EntityType="BiblotekaModel.tblRafti" Width="1.5" PointX="3" PointY="15" />
+        <EntityTypeShape EntityType="BiblotekaModel.tblShtepiaBotuese" Width="1.5" PointX="5.75" PointY="1" />
         <AssociationConnector Association="BiblotekaModel.FK_tblLibri_tblAutori" />
         <AssociationConnector Association="BiblotekaModel.FK_tblLibri_tblDhoma" />
         <AssociationConnector Association="BiblotekaModel.FK_tblLibri_tblGjuhaLibrit" />
@@ -25,6 +25,7 @@
         <AssociationConnector Association="BiblotekaModel.FK_tblHistoriatet_tblHistoriatetLlojet" />
         <AssociationConnector Association="BiblotekaModel.FK_tblHuazimi_tblLibri" />
         <AssociationConnector Association="BiblotekaModel.FK_tblHuazimi_tblPerdoruesit" />
+        <AssociationConnector Association="BiblotekaModel.FK_tblKthimi_tblHuazimi" />
         <AssociationConnector Association="BiblotekaModel.FK_tblPerdoruesit_tblKomunat" />
         <AssociationConnector Association="BiblotekaModel.FK_tblKthimi_tblLibri" />
         <AssociationConnector Association="BiblotekaModel.FK_tblKthimi_tblPerdoruesit" />
