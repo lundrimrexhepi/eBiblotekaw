@@ -6,13 +6,13 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.96528in</Width>
+              <Width>1.94792in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.71528in</Width>
+              <Width>3.36458in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.11111in</Width>
+              <Width>1in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -28,7 +28,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Libri</Value>
+                              <Value>Lexuesi</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -61,7 +61,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Autori</Value>
+                              <Value>Titulli Librit</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -94,7 +94,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Sasia</Value>
+                              <Value>Nr huazuar</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -125,21 +125,21 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Libri">
+                    <Textbox Name="perdoruesi">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Libri.Value</Value>
+                              <Value>=Fields!perdoruesi.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Libri</rd:DefaultName>
+                      <rd:DefaultName>perdoruesi</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -155,21 +155,21 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Autori">
+                    <Textbox Name="TittulliLibrit">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Autori.Value</Value>
+                              <Value>=Fields!TittulliLibrit.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Autori</rd:DefaultName>
+                      <rd:DefaultName>TittulliLibrit</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -185,21 +185,21 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Sasia">
+                    <Textbox Name="nr">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Sasia.Value</Value>
+                              <Value>=Fields!nr.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Sasia</rd:DefaultName>
+                      <rd:DefaultName>nr</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -220,7 +220,7 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox7">
+                    <Textbox Name="Textbox8">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -238,7 +238,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox7</rd:DefaultName>
+                      <rd:DefaultName>Textbox8</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -257,14 +257,14 @@
                 <TablixCell />
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Sasia1">
+                    <Textbox Name="nr1">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!Sasia.Value)</Value>
+                              <Value>=Sum(Fields!nr.Value)</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -273,7 +273,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Sasia1</rd:DefaultName>
+                      <rd:DefaultName>nr1</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -312,27 +312,26 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>dsLibrat</DataSetName>
-        <Top>0.9675in</Top>
-        <Left>0.55084in</Left>
+        <DataSetName>dsHuazimet</DataSetName>
+        <Top>1.2175in</Top>
+        <Left>0.5925in</Left>
         <Height>0.75in</Height>
-        <Width>5.79167in</Width>
+        <Width>6.3125in</Width>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Tablix>
-      <Textbox Name="Textbox10">
+      <Textbox Name="Textbox7">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Librat</Value>
+                <Value>Librat e huazuar</Value>
                 <Style>
-                  <FontSize>12pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
@@ -342,11 +341,11 @@
             </Style>
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>Textbox10</rd:DefaultName>
-        <Top>0.49875in</Top>
-        <Left>0.55084in</Left>
+        <rd:DefaultName>Textbox7</rd:DefaultName>
+        <Top>0.57167in</Top>
+        <Left>0.5925in</Left>
         <Height>0.25in</Height>
-        <Width>5.79167in</Width>
+        <Width>6.3125in</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -365,10 +364,10 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>2in</Height>
+    <Height>2.5625in</Height>
     <Style />
   </Body>
-  <Width>6.5in</Width>
+  <Width>7.0625in</Width>
   <Page>
     <LeftMargin>1in</LeftMargin>
     <RightMargin>1in</RightMargin>
@@ -378,37 +377,37 @@
   </Page>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="dsLibrat">
+    <DataSource Name="dsHuazimet">
       <ConnectionProperties>
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>b84b6bfc-dab7-440d-8c1a-fde97bb70ffd</rd:DataSourceID>
+      <rd:DataSourceID>5a06da51-ef2e-4612-bfeb-16b179909c13</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="dsLibrat">
+    <DataSet Name="dsHuazimet">
       <Query>
-        <DataSourceName>dsLibrat</DataSourceName>
+        <DataSourceName>dsHuazimet</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="Libri">
-          <DataField>Libri</DataField>
+        <Field Name="perdoruesi">
+          <DataField>perdoruesi</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Autori">
-          <DataField>Autori</DataField>
+        <Field Name="TittulliLibrit">
+          <DataField>TittulliLibrit</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Sasia">
-          <DataField>Sasia</DataField>
+        <Field Name="nr">
+          <DataField>nr</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>dsLibrat</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\visar.berisha\Source\Repos\lundrimrexhepi\eBiblotekaw\eBibloteka\Dataset\dsLibrat.xsd</rd:SchemaPath>
+        <rd:DataSetName>dsHuazimet</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\visar.berisha\Source\Repos\lundrimrexhepi\eBiblotekaw\eBibloteka\Dataset\dsHuazimet.xsd</rd:SchemaPath>
         <rd:TableName>DataTable1</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
@@ -417,5 +416,5 @@
     </DataSet>
   </DataSets>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
-  <rd:ReportID>5b1944a5-361a-4a9f-a50e-ae66f4855704</rd:ReportID>
+  <rd:ReportID>e9f91644-31d0-4aae-8bcd-cab5b9bb0253</rd:ReportID>
 </Report>

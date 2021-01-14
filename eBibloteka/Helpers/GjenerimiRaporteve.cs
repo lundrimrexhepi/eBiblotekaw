@@ -43,11 +43,14 @@ namespace eBibloteka.Helpers
             {
                 case LlojiRaportit.raporti:
 
-                    reportViewer.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", objDataTable[0]));                    
-                    reportViewer.LocalReport.SetParameters(parametrat);
+                    reportViewer.LocalReport.DataSources.Add(new ReportDataSource("dsLibrat", objDataTable[0]));                    
+                   
                     break;
                 case LlojiRaportit.raporti1:
-                    reportViewer.LocalReport.DataSources.Add(new ReportDataSource("dslistavotuesvejashtKS", objDataTable[0]));
+                    reportViewer.LocalReport.DataSources.Add(new ReportDataSource("dsLibriKerkuar", objDataTable[0]));
+                    break;
+                case LlojiRaportit.raporti2:
+                    reportViewer.LocalReport.DataSources.Add(new ReportDataSource("dsHuazimet", objDataTable[0]));
                     break;
                 default:
                     break;

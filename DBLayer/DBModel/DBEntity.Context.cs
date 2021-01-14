@@ -144,5 +144,15 @@ namespace DBLayer.DBModel
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
         }
+    
+        public virtual ObjectResult<prLibriKerkuar_Result> prLibriKerkuar()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<prLibriKerkuar_Result>("prLibriKerkuar");
+        }
+    
+        public virtual ObjectResult<prHuazimet_Result> prHuazimet()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<prHuazimet_Result>("prHuazimet");
+        }
     }
 }

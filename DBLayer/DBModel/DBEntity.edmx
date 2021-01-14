@@ -313,6 +313,8 @@
           </ReferentialConstraint>
         </Association>
         <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="prHuazimet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="prLibriKerkuar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
@@ -512,6 +514,8 @@
             <End Role="tblRafti" EntitySet="tblRafti" />
             <End Role="tblLibri" EntitySet="tblLibri" />
           </AssociationSet>
+          <FunctionImport Name="prLibriKerkuar" ReturnType="Collection(BiblotekaModel.prLibriKerkuar_Result)" />
+          <FunctionImport Name="prHuazimet" ReturnType="Collection(BiblotekaModel.prHuazimet_Result)" />
           </EntityContainer>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -857,6 +861,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="prLibriKerkuar_Result">
+          <Property Type="String" Name="TittulliLibrit" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="autori" Nullable="true" MaxLength="101" />
+          <Property Type="Int32" Name="LibriID" Nullable="true" />
+          <Property Type="Int32" Name="nr" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="prHuazimet_Result">
+          <Property Type="String" Name="perdoruesi" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="TittulliLibrit" Nullable="false" MaxLength="200" />
+          <Property Type="Int32" Name="LibriID" Nullable="false" />
+          <Property Type="Int32" Name="nr" Nullable="true" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1052,6 +1068,26 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="prLibriKerkuar" FunctionName="BiblotekaModel.Store.prLibriKerkuar">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BiblotekaModel.prLibriKerkuar_Result">
+                <ScalarProperty Name="TittulliLibrit" ColumnName="TittulliLibrit" />
+                <ScalarProperty Name="autori" ColumnName="autori" />
+                <ScalarProperty Name="LibriID" ColumnName="LibriID" />
+                <ScalarProperty Name="nr" ColumnName="nr" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="prHuazimet" FunctionName="BiblotekaModel.Store.prHuazimet">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BiblotekaModel.prHuazimet_Result">
+                <ScalarProperty Name="perdoruesi" ColumnName="perdoruesi" />
+                <ScalarProperty Name="TittulliLibrit" ColumnName="TittulliLibrit" />
+                <ScalarProperty Name="LibriID" ColumnName="LibriID" />
+                <ScalarProperty Name="nr" ColumnName="nr" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

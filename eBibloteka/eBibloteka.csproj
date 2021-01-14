@@ -164,6 +164,21 @@
     <Compile Include="Controllers\PerdoruesiController.cs" />
     <Compile Include="Controllers\ProfiliController.cs" />
     <Compile Include="Controllers\RaportetController.cs" />
+    <Compile Include="Dataset\dsHuazimet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsHuazimet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Dataset\dsLibrat.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsLibrat.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Dataset\dsLibriKerkuar.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsLibriKerkuar.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -10753,6 +10768,39 @@
     <Content Include="fonts\source-sans-pro-v14-latin-regular.ttf" />
     <Content Include="fonts\source-sans-pro-v14-latin-regular.woff" />
     <Content Include="fonts\source-sans-pro-v14-latin-regular.woff2" />
+    <Content Include="Dataset\dsLibrat.xsc">
+      <DependentUpon>dsLibrat.xsd</DependentUpon>
+    </Content>
+    <Content Include="Dataset\dsHuazimet.xsc">
+      <DependentUpon>dsHuazimet.xsd</DependentUpon>
+    </Content>
+    <None Include="Dataset\dsHuazimet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsHuazimet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Dataset\dsHuazimet.xss">
+      <DependentUpon>dsHuazimet.xsd</DependentUpon>
+    </Content>
+    <None Include="Dataset\dsLibrat.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsLibrat.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Dataset\dsLibrat.xss">
+      <DependentUpon>dsLibrat.xsd</DependentUpon>
+    </Content>
+    <Content Include="Dataset\dsLibriKerkuar.xsc">
+      <DependentUpon>dsLibriKerkuar.xsd</DependentUpon>
+    </Content>
+    <None Include="Dataset\dsLibriKerkuar.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsLibriKerkuar.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Dataset\dsLibriKerkuar.xss">
+      <DependentUpon>dsLibriKerkuar.xsd</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.min.js" />
@@ -10887,6 +10935,9 @@
     <Content Include="Views\Huazimi\Index.cshtml" />
     <Content Include="Views\ListaHuazimit\Index.cshtml" />
     <Content Include="Views\Kthimi\Index.cshtml" />
+    <Content Include="Views\Profili\Index.cshtml" />
+    <Content Include="Views\LibratLista\Index.cshtml" />
+    <Content Include="Views\Raportet\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -10896,7 +10947,6 @@
     <Folder Include="Content\Template\bower_components\select2\docs\_includes\" />
     <Folder Include="Content\Template\bower_components\select2\docs\_layouts\" />
     <Folder Include="Content\Template\bower_components\select2\docs\_sass\" />
-    <Folder Include="Datasets\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
@@ -10930,7 +10980,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Reports\rptHuazimet.rdlc" />
     <EmbeddedResource Include="Reports\rptLibri.rdlc" />
+    <EmbeddedResource Include="Reports\rptLibriKerkuar.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
