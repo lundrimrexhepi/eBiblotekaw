@@ -59,15 +59,18 @@ namespace eBibloteka.Controllers
 
                             obj._HuazimiRepository.Insert(objHuazimi);
                             obj.Save();
-                            obj.Dispose();
-
-                            tblLibri objLibri = new tblLibri();
+                             obj.Dispose();
                             int Stoku = int.Parse(validimiStokut.Sasia.ToString()) - int.Parse(model.Sasia.ToString());
-                            objLibri.Sasia = int.Parse(Stoku.ToString());
+                            var updateStoku = db.tblLibri.Where(x => x.LibriID == model.LibriID).FirstOrDefault();
+                            updateStoku.Sasia = Stoku;
+                            db.SaveChanges();
+                            //tblLibri objLibri = new tblLibri();
                             
-                            obj._BookRepository.Update(objLibri);
-                            obj.Save();
-                            obj.Dispose();
+                            //objLibri.Sasia = int.Parse(Stoku.ToString());
+                            
+                            //obj._BookRepository.Update(objLibri);
+                            //obj.Save();
+                            //obj.Dispose();
 
                         }
                         else

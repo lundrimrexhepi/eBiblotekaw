@@ -1,0 +1,59 @@
+﻿
+@model eBibloteka.Models.Kthimi
+
+
+@using (Html.BeginForm("RKthim", "Kthimi", FormMethod.Post, new { @id = "modifikogr" }))
+{
+
+
+    @*@Html.AntiForgeryToken()*@
+    <section class="content">
+        <!-- Rreshti i pare-->
+
+        <div class="row">
+            <div class="col-md-4">
+                <b>Pagesa</b><br />
+                @Html.HiddenFor(model => model.HuazimiID)
+                @Html.TextBoxFor(model => model.Pagesa, new { @class = "form-control", @Placeholer = "Pershkrimi" })
+
+
+            </div>
+            <div class="col-md-4">
+                <b>Demtuar</b><br />
+                @Html.CheckBoxFor(model => model.Demtuar)
+            </div>
+
+
+
+        </div>
+    </section>
+    <div class="row">
+        <div class="col-md-8"></div>
+        <div class="col-md-4">
+            <input type="button" onclick="confirmo()" value="Ruaj" class="btn-primary btn-sm" id="SubmitButton1" style="width:100%;" />
+        </div>
+    </div>
+}
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryval")
+
+<script>
+    function confirmo() {
+        Swal.fire({
+            title: 'A jeni i sigurtë?',
+            text: "Të dhënat e ndryshuara do ruhen!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Po, konfirmoj!',
+            cancelButtonText: 'Jo, anuloj!'
+        }).then((result) => {
+            if (result.value) {
+                $("#modifikogr").submit();
+            } else {
+                return false;
+            }
+        })
+    }
+</script>

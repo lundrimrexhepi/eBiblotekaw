@@ -192,8 +192,8 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column nav-flat" data-widget="treeview" role="menu" data-accordion="false">
 
-                        <li id="mnuAdministrimi" class="nav-item has-treeview @((ViewContext.RouteData.Values["controller"].ToString() == "Perdoruesi" || ViewContext.RouteData.Values["controller"].ToString() == "Grupi" ||  ViewContext.RouteData.Values["controller"].ToString() == "Format" || ViewContext.RouteData.Values["controller"].ToString() == "Autorizimet"  || ViewContext.RouteData.Values["controller"].ToString() =="ResursetGjuha") ? "menu-open" : "")">
-                            <a href="#" class='nav-link @((ViewContext.RouteData.Values["controller"].ToString() == "Perdoruesi" || ViewContext.RouteData.Values["controller"].ToString() == "Grupi" || ViewContext.RouteData.Values["controller"].ToString() == "PagesatImportimi"  || ViewContext.RouteData.Values["controller"].ToString() == "Format" ||ViewContext.RouteData.Values["controller"].ToString() == "Autorizimet"  ||  ViewContext.RouteData.Values["controller"].ToString() =="ResursetGjuha")? "active" : "")'>
+                        <li id="mnuAdministrimi" class="nav-item has-treeview @((ViewContext.RouteData.Values["controller"].ToString() == "Perdoruesi" ) ? "menu-open" : "")">
+                            <a href="#" class='nav-link @((ViewContext.RouteData.Values["controller"].ToString() == "Perdoruesi")? "active" : "")'>
                                 <i class="nav-icon fas fa-cogs"></i>
                                 <p>
                                     Perdoruesit
@@ -202,7 +202,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li id="submnuPerdoruesi" class="nav-item">
-                                    <a href="@Url.Action("Index","Perdoruesi")" class="nav-link '@(ViewContext.RouteData.Values["controller"].ToString() == "Perdoruesi" ? " nav-link active" : "")">
+                                    <a href="@Url.Action("Index","Perdoruesi")" class="nav-link '@((ViewContext.RouteData.Values["controller"].ToString() == "Perdoruesi") ? "nav-link active" : "")">
                                         <i class="far fa-circle nav-icon"></i>
                                         Përdoruesit
                                     </a>
@@ -210,8 +210,8 @@
 
                             </ul>
                         </li>
-                        <li id="mnuLibri" class="nav-item has-treeview @((ViewContext.RouteData.Values["controller"].ToString() == "Perdoruesi" || ViewContext.RouteData.Values["controller"].ToString() == "Grupi" ||  ViewContext.RouteData.Values["controller"].ToString() == "Format" || ViewContext.RouteData.Values["controller"].ToString() == "Autorizimet"  || ViewContext.RouteData.Values["controller"].ToString() =="ResursetGjuha") ? "menu-open" : "")">
-                            <a href="#" class='nav-link @((ViewContext.RouteData.Values["controller"].ToString() == "Perdoruesi" || ViewContext.RouteData.Values["controller"].ToString() == "Grupi" || ViewContext.RouteData.Values["controller"].ToString() == "PagesatImportimi"  || ViewContext.RouteData.Values["controller"].ToString() == "Format" ||ViewContext.RouteData.Values["controller"].ToString() == "Autorizimet"  ||  ViewContext.RouteData.Values["controller"].ToString() =="ResursetGjuha")? "active" : "")'>
+                        <li id="mnuLibri" class="nav-item has-treeview @((ViewContext.RouteData.Values["controller"].ToString() == "Librat" || ViewContext.RouteData.Values["controller"].ToString() == "ListaLibrave"|| ViewContext.RouteData.Values["controller"].ToString() == "Autori")? "menu-open" : "")">
+                            <a href="#" class='nav-link @((ViewContext.RouteData.Values["controller"].ToString() == "Librat" || ViewContext.RouteData.Values["controller"].ToString() == "ListaLibrave"|| ViewContext.RouteData.Values["controller"].ToString() == "Autori" )? "active" : "")'>
                                 <i class="nav-icon fas fa-book"></i>
                                 <p>
                                     Librat
@@ -220,7 +220,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li id="submnuPerdoruesi" class="nav-item">
-                                    <a href="@Url.Action("Index","Librat")" class="nav-link '@(ViewContext.RouteData.Values["controller"].ToString() == "Perdoruesi" ? " nav-link active" : "")">
+                                    <a href="@Url.Action("Index","Librat")" class="nav-link '@(ViewContext.RouteData.Values["controller"].ToString() == "Librat" ? " nav-link active" : "")">
                                         <i class="far fa-circle nav-icon"></i>
                                         Regjistrimi
                                     </a>
@@ -229,16 +229,25 @@
                             </ul>
                             <ul class="nav nav-treeview">
                                 <li id="submnuPerdoruesi" class="nav-item">
-                                    <a href="@Url.Action("Index","ListaLibrave")" class="nav-link '@(ViewContext.RouteData.Values["controller"].ToString() == "Perdoruesi" ? " nav-link active" : "")">
+                                    <a href="@Url.Action("Index","ListaLibrave")" class="nav-link '@(ViewContext.RouteData.Values["controller"].ToString() == "ListaLibrave" ? " nav-link active" : "")">
                                         <i class="far fa-circle nav-icon"></i>
                                         Lista
                                     </a>
                                 </li>
 
                             </ul>
+                            <ul class="nav nav-treeview">
+                                <li id="submnuPerdoruesi" class="nav-item">
+                                    <a href="@Url.Action("Index","Autori")" class="nav-link '@(ViewContext.RouteData.Values["controller"].ToString() == "Autori" ? " nav-link active" : "")">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        Autoret
+                                    </a>
+                                </li>
+
+                            </ul>
                         </li>
-                        <li id="mnuLibri" class="nav-item has-treeview @((ViewContext.RouteData.Values["controller"].ToString() == "Perdoruesi" || ViewContext.RouteData.Values["controller"].ToString() == "Grupi" ||  ViewContext.RouteData.Values["controller"].ToString() == "Format" || ViewContext.RouteData.Values["controller"].ToString() == "Autorizimet"  || ViewContext.RouteData.Values["controller"].ToString() =="ResursetGjuha") ? "menu-open" : "")">
-                            <a href="#" class='nav-link @((ViewContext.RouteData.Values["controller"].ToString() == "Perdoruesi" || ViewContext.RouteData.Values["controller"].ToString() == "Grupi" || ViewContext.RouteData.Values["controller"].ToString() == "PagesatImportimi"  || ViewContext.RouteData.Values["controller"].ToString() == "Format" ||ViewContext.RouteData.Values["controller"].ToString() == "Autorizimet"  ||  ViewContext.RouteData.Values["controller"].ToString() =="ResursetGjuha")? "active" : "")'>
+                        <li id="mnuLibri" class="nav-item has-treeview @((ViewContext.RouteData.Values["controller"].ToString() == "Huazimi" || ViewContext.RouteData.Values["controller"].ToString() == "ListaHuazimit" ) ? "menu-open" : "")">
+                            <a href="#" class='nav-link @((ViewContext.RouteData.Values["controller"].ToString() == "Huazimi" || ViewContext.RouteData.Values["controller"].ToString() == "ListaHuazimit")? "active" : "")'>
                                 <i class="nav-icon fas fa-bars"></i>
                                 <p>
                                     Huazimi
@@ -247,7 +256,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li id="submnuPerdoruesi" class="nav-item">
-                                    <a href="@Url.Action("Index","Huazimi")" class="nav-link '@(ViewContext.RouteData.Values["controller"].ToString() == "Perdoruesi" ? " nav-link active" : "")">
+                                    <a href="@Url.Action("Index","Huazimi")" class="nav-link '@(ViewContext.RouteData.Values["controller"].ToString() == "Huazimi" ? " nav-link active" : "")">
                                         <i class="far fa-circle nav-icon"></i>
                                         Regjistrimi
                                     </a>
@@ -256,7 +265,7 @@
                             </ul>
                             <ul class="nav nav-treeview">
                                 <li id="submnuPerdoruesi" class="nav-item">
-                                    <a href="@Url.Action("Index","ListaHuazimit")" class="nav-link '@(ViewContext.RouteData.Values["controller"].ToString() == "Perdoruesi" ? " nav-link active" : "")">
+                                    <a href="@Url.Action("Index","ListaHuazimit")" class="nav-link '@(ViewContext.RouteData.Values["controller"].ToString() == "ListaHuazimit" ? " nav-link active" : "")">
                                         <i class="far fa-circle nav-icon"></i>
                                         Lista
                                     </a>
@@ -264,8 +273,8 @@
 
                             </ul>
                         </li>
-                        <li id="mnuLibri" class="nav-item has-treeview @((ViewContext.RouteData.Values["controller"].ToString() == "Perdoruesi" || ViewContext.RouteData.Values["controller"].ToString() == "Grupi" ||  ViewContext.RouteData.Values["controller"].ToString() == "Format" || ViewContext.RouteData.Values["controller"].ToString() == "Autorizimet"  || ViewContext.RouteData.Values["controller"].ToString() =="ResursetGjuha") ? "menu-open" : "")">
-                            <a href="@Url.Action("Index","Kthimi")" class='nav-link @((ViewContext.RouteData.Values["controller"].ToString() == "Perdoruesi" || ViewContext.RouteData.Values["controller"].ToString() == "Grupi" || ViewContext.RouteData.Values["controller"].ToString() == "PagesatImportimi"  || ViewContext.RouteData.Values["controller"].ToString() == "Format" ||ViewContext.RouteData.Values["controller"].ToString() == "Autorizimet"  ||  ViewContext.RouteData.Values["controller"].ToString() =="ResursetGjuha")? "active" : "")'>
+                        <li id="mnuLibri" class="nav-item has-treeview @((ViewContext.RouteData.Values["controller"].ToString() == "Kthimi") ? "menu-open" : "")">
+                            <a href="@Url.Action("Index","Kthimi")" class='nav-link @((ViewContext.RouteData.Values["controller"].ToString() == "Kthimi")? "active" : "")'>
                                 <i class="nav-icon fas fa-cogs"></i>
                                 <p>
                                     Kthimi

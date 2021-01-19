@@ -1,4 +1,5 @@
 ﻿using DBLayer.DBModel;
+using DBLayer.Repository;
 using eBibloteka.Models;
 using System;
 using System.Collections.Generic;
@@ -11,9 +12,11 @@ namespace eBibloteka.Controllers
     public class KthimiController : Controller
     {
         // GET: Kthimi
+        UnitOfWork obj = new UnitOfWork();
         BiblotekaEntities db = new BiblotekaEntities();
         public ActionResult Index()
         {
+            Session["PerdoruesiID"] = 2;
             return View();
         }
         public JsonResult Kerko()
@@ -97,7 +100,7 @@ namespace eBibloteka.Controllers
                 {
                     Lexuesi = item.Perdoruesi,
                     Libri = item.TittulliLibrit,
-                    Demtuar=item.Domtuar,
+                    Demtuar=bool.Parse(item.Domtuar.ToString()),
                     DataKthimit = DateTime.Parse(item.DataKthimit.ToString())
 
 
@@ -112,6 +115,59 @@ namespace eBibloteka.Controllers
 
             ListaMushur = ListaMushur.Skip(start).Take(length).ToList();
             return Json(new { data = ListaMushur, draw = Request["draw"], recordsTotal = totalrows, recordsFiltered = totalrowsafterfiltering }, JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult _RegjistoK(int HuazimiID)
+        {
+           
+
+            Kthimi modeli = new Kthimi();
+            modeli.HuazimiID = HuazimiID;
+           
+
+
+
+            return PartialView("_Kthimi", modeli);
+        }
+        [HttpPost]
+       // [ValidateAntiForgeryToken]
+        public ActionResult RKthim(Kthimi model)
+        {
+            try
+            {
+                var TedhenatHuazimit = db.tblHuazimi.Where(x => x.HuazimiID == model.HuazimiID).FirstOrDefault();
+                tblKthimi objKthimi = new tblKthimi();
+                objKthimi.HuazimiID = model.HuazimiID;
+                objKthimi.LibriID = TedhenatHuazimit.LibriID;
+                objKthimi.PerdoruesiID= int.Parse(Session["PerdoruesiID"].ToString());
+                objKthimi.Sasia = TedhenatHuazimit.Sasia;
+                objKthimi.DataKthimit = DateTime.Now;
+                objKthimi.Domtuar = model.Demtuar;
+                objKthimi.Pages = model.Pagesa;
+                objKthimi.SasiaDomtuar= TedhenatHuazimit.Sasia;
+
+                obj._KthimiRepository.Insert(objKthimi);
+                obj.Save();
+                obj.Dispose();
+                      
+                if (model.Demtuar==false)
+                {
+                    var validimiStokut = db.tblLibri.Where(x => x.LibriID == TedhenatHuazimit.LibriID).FirstOrDefault();
+                    int Stoku = int.Parse(validimiStokut.Sasia.ToString()) + int.Parse(TedhenatHuazimit.Sasia.ToString());
+                    var updateStoku = db.tblLibri.Where(x => x.LibriID == TedhenatHuazimit.LibriID).FirstOrDefault();
+                    updateStoku.Sasia = Stoku;
+                    db.SaveChanges();
+                }
+
+                return RedirectToAction("Index");
+                //}
+            }
+            catch (Exception)
+            {
+               // Danger("Ka ndodhur nje gabim", true);
+                return RedirectToAction("Index");
+                throw;
+            }
+
         }
     }
 }

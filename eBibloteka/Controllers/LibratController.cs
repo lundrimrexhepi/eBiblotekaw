@@ -29,6 +29,7 @@ namespace eBibloteka.Controllers
             else
             {
                 var TedhenatLibri = db.tblLibri.Where(x => x.LibriID == l).FirstOrDefault();
+                modeli.LibriID = TedhenatLibri.LibriID;
                 modeli.ISBN = TedhenatLibri.ISBN;
                 modeli.TittulliLibrit = TedhenatLibri.TittulliLibrit;
                 modeli.Sasia = TedhenatLibri.Sasia;
@@ -64,17 +65,17 @@ namespace eBibloteka.Controllers
             ViewBag.Rafti = new SelectList(db.tblRafti.ToList(), "RaftiID", "PershkrimiRafti");
             ViewBag.Lexuesi = new SelectList(db.tblPerdoruesit.ToList(), "PerdoruesiID", "Perdoruesi");
             ViewBag.VitiBotimit = new SelectList(
-             Enumerable.Range(1900, 2021)
-             .OrderByDescending(month => month)
-             .Select(Year => new SelectListItem
-             {
-                 Value = Year.ToString(CultureInfo.InvariantCulture),
-                 Text = Year < 10 ? string.Format("0{0}", Year) : Year.ToString(CultureInfo.InvariantCulture)
-             }),
-             "Value",
-             "Text");
-            
-                ViewBag.ShtepiaBotuese = new SelectList(db.tblShtepiaBotuese.ToList(), "ShtepiaBotuseID", "Pershkrimi");
+            Enumerable.Range(1900, 121)
+            .OrderByDescending(month => month)
+            .Select(Year => new SelectListItem
+            {
+                Value = Year.ToString(CultureInfo.InvariantCulture),
+                Text = Year < 10 ? string.Format("0{0}", Year) : Year.ToString(CultureInfo.InvariantCulture)
+            }),
+            "Value",
+            "Text");
+
+            ViewBag.ShtepiaBotuese = new SelectList(db.tblShtepiaBotuese.ToList(), "ShtepiaBotuseID", "Pershkrimi");
 
         }
         [HttpPost]
@@ -88,7 +89,7 @@ namespace eBibloteka.Controllers
 
                     if (int.Parse(Session["Rasti"].ToString()) == 1)
                     {
-                        tblLibri objLibri = new tblLibri();
+                        tblLibri objLibri = new tblLibri();                      
                         objLibri.ISBN = GjeneroISBN();
                         objLibri.TittulliLibrit = model.TittulliLibrit;
                         objLibri.Sasia = model.Sasia;
@@ -114,6 +115,7 @@ namespace eBibloteka.Controllers
                     else
                     {
                         tblLibri objLibri = new tblLibri();
+                        objLibri.LibriID = model.LibriID;
                         objLibri.ISBN = model.ISBN;
                         objLibri.TittulliLibrit = model.TittulliLibrit;
                         objLibri.Sasia = model.Sasia;

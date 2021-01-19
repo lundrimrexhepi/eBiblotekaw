@@ -10,7 +10,9 @@ namespace eBibloteka.Models
         public string Libri { get; set; }
         public string Lexuesi { get; set; }
         public DateTime DataKthimit { get; set; }
-        public bool? Demtuar { get; set; }
+        public bool Demtuar { get; set; }
         public int KthimiID { get; set; }
+        public int HuazimiID { get; set; }
+        public decimal Pagesa { get; set; }
     }
 }

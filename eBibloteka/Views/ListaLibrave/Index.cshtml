@@ -36,9 +36,7 @@
                                     <th style="text-align:center">
 
                                     </th>
-                                    <th style="text-align:center">
-
-                                    </th>
+                                    
                                 </tr>
                             </thead>
                         </table>
@@ -85,14 +83,6 @@
                           data: null, "autowidth": true,
                              render: function (data, type, row, meta) {
                                  return "<a href='@Url.Action("Index", "Librat")?l=" + data.LibriID + "'><i class='fas fa-edit' aria-hidden='true'></i></a>"
-
-
-                          }
-                        },
-                        {
-                          data: null, "autowidth": true,
-                             render: function (data, type, row, meta) {
-                                 return "<a target='_blank'  href='@Url.Action("Raporti", "PagesatLista")?pa=" + data.LibriID + "'><i class='fas fa-file-invoice' aria-hidden='true'></i></a>"
 
 
                           }

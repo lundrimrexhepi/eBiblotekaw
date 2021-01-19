@@ -22,47 +22,47 @@
                                 <div class="card-tools">
                                 </div>
                             </div>
-                          
 
-                                <!-- /.card-header -->
-                                <div class="card-body">
+                            
+                            <!-- /.card-header -->
+                            <div class="card-body">
 
-                                    <div class="row">
-                                        <div class="form-group col-md-2">
-                                            <label for="inputEmail3" class="col-form-label">Lirbri<text class="text-danger" style="font-size:1.3em;"> *</text></label>
-                                            @Html.DropDownListFor(x => x.LibriID, (SelectList)ViewBag.Libri, "", new { @class = "form-control" })
-                                        </div>
-                                        <div class="form-group col-md-2">
-                                            <label for="inputEmail3" class="col-form-label">Lexuesi<text class="text-danger" style="font-size:1.3em;"> *</text></label>
-                                            @Html.DropDownListFor(x => x.PerdoruesiIDLexuesi, (SelectList)ViewBag.Lexuesi, "", new { @class = "form-control" })
-                                        </div>
-                                        <div class="form-group col-md-2">
-                                            <label for="inputEmail3" class="col-form-label">Sasia<text class="text-danger" style="font-size:1.3em;"> </text></label>
-                                            @Html.TextBoxFor(x => x.Sasia, new { @class = "form-control", @readonly = "true" })
-                                        </div>
-                                        <div class="form-group col-md-2">
-                                            <label for="inputEmail3" class="col-form-label">Shenime<text class="text-danger" style="font-size:1.3em;"> </text></label>
-                                            @Html.TextBoxFor(x => x.Shenime, new { @class = "form-control" })
-                                        </div>
-                                        <div class="form-group col-md-2">
-                                            <label for="inputEmail3" class="col-form-label">Data Huazimit<text class="text-danger" style="font-size:1.3em;"> </text></label>
-                                            @Html.TextBoxFor(model => model.DataHuazimit, "{0:yyyy-MM-dd}", new { @type = "date", @class = "form-control datepicker", @Placeholder = "dd/MM/YYYY" })
-                                        </div>
-                                        <div class="form-group col-md-2">
-                                            <label for="inputEmail3" class="col-form-label">Data kthimit<text class="text-danger" style="font-size:1.3em;"> </text></label>
-                                            @Html.TextBoxFor(model => model.DataKthimit, "{0:yyyy-MM-dd}", new { @type = "date", @class = "form-control datepicker", @Placeholder = "dd/MM/YYYY" })
-                                        </div>
-
+                                <div class="row">
+                                    <div class="form-group col-md-2">
+                                        <label for="inputEmail3" class="col-form-label">Lirbri<text class="text-danger" style="font-size:1.3em;"> *</text></label>
+                                        @Html.DropDownListFor(x => x.LibriID, (SelectList)ViewBag.Libri, "", new { @class = "form-control" })
                                     </div>
-
-
-                                    <div class="col-md-2">
-                                        <input type="submit" class="btn btn-lightblue btn-flat mr-1" style=" width:100%;" value="Ruaj Huazimin"  onclick="Ruaj()"/>
+                                    <div class="form-group col-md-2">
+                                        <label for="inputEmail3" class="col-form-label">Lexuesi<text class="text-danger" style="font-size:1.3em;"> *</text></label>
+                                        @Html.DropDownListFor(x => x.PerdoruesiIDLexuesi, (SelectList)ViewBag.Lexuesi, "", new { @class = "form-control" })
                                     </div>
-
+                                    <div class="form-group col-md-2">
+                                        <label for="inputEmail3" class="col-form-label">Sasia<text class="text-danger" style="font-size:1.3em;"> </text></label>
+                                        @Html.TextBoxFor(x => x.Sasia, new { @class = "form-control", @readonly = "true" })
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="inputEmail3" class="col-form-label">Shenime<text class="text-danger" style="font-size:1.3em;"> </text></label>
+                                        @Html.TextBoxFor(x => x.Shenime, new { @class = "form-control" })
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="inputEmail3" class="col-form-label">Data Huazimit<text class="text-danger" style="font-size:1.3em;"> </text></label>
+                                        @Html.TextBoxFor(model => model.DataHuazimit, "{0:yyyy-MM-dd}", new { @type = "date", @class = "form-control datepicker", @Placeholder = "dd/MM/YYYY" })
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="inputEmail3" class="col-form-label">Data kthimit<text class="text-danger" style="font-size:1.3em;"> </text></label>
+                                        @Html.TextBoxFor(model => model.DataKthimit, "{0:yyyy-MM-dd}", new { @type = "date", @class = "form-control datepicker", @Placeholder = "dd/MM/YYYY" })
+                                    </div>
 
                                 </div>
-                        
+
+
+                                <div class="col-md-2">
+                                    <input type="submit" class="btn btn-lightblue btn-flat mr-1" style=" width:100%;" value="Ruaj Huazimin" onclick="Ruaj()" />
+                                </div>
+
+
+                            </div>
+
 
                             <div class="card-footer">
                             </div>

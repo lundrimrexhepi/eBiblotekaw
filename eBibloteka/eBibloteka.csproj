@@ -154,6 +154,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AutoriController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HuazimiController.cs" />
@@ -186,6 +187,7 @@
     <Compile Include="Helpers\CultureHelper.cs" />
     <Compile Include="Helpers\Enums.cs" />
     <Compile Include="Helpers\GjenerimiRaporteve.cs" />
+    <Compile Include="Models\Autori.cs" />
     <Compile Include="Models\Huazimi.cs" />
     <Compile Include="Models\Kthimi.cs" />
     <Compile Include="Models\Librat.cs" />
@@ -194,6 +196,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\eBibloteka.dll" />
+    <Content Include="bin\eBibloteka.pdb" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -10938,6 +10942,8 @@
     <Content Include="Views\Profili\Index.cshtml" />
     <Content Include="Views\LibratLista\Index.cshtml" />
     <Content Include="Views\Raportet\Index.cshtml" />
+    <Content Include="Views\Kthimi\_Kthimi.cshtml" />
+    <Content Include="Views\Autori\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
