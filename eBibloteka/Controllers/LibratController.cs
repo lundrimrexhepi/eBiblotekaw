@@ -161,12 +161,12 @@ namespace eBibloteka.Controllers
             string strUNIREF = "", strNumriSerik = "", strFakulteti = "";
             int intLibraID = 0, ShtoNumriSerik = 0;
 
-            var Listlibri = db.tblLibri.FirstOrDefault();
+            var Listlibri = db.tblLibri.OrderByDescending(x=>x.AutoriID).FirstOrDefault();
                 if ((Listlibri != null ? Listlibri.LibriID : 0) > 0)
                 {
                     try
                     {
-                        intLibraID = Listlibri.LibriID;
+                        intLibraID = Listlibri.LibriID+1;
                         ShtoNumriSerik = 8 - intLibraID.ToString().Length;
                     }
                     catch
